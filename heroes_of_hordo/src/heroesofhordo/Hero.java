@@ -24,7 +24,7 @@ public class Hero {
     public Hero(){
         name="Albin";
         //setName();
-        setRace();
+        setRace(1);
         setChoices();
         location = "Sandtopia";
         inventory = new Inventory();
@@ -45,6 +45,11 @@ public class Hero {
         int tmp_race = sc.nextInt();
         race=new Race(tmp_race);  
     }
+    
+    private void setRace(int i) {
+     race=new Race(i);
+    }
+
 
     private void setChoices() {
         if (location !=null) {
@@ -58,6 +63,7 @@ public class Hero {
     String getAction() {
         return action;
     }
-    
+
+
     
 }

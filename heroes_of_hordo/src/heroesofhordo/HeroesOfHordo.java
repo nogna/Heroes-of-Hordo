@@ -20,10 +20,7 @@ public class HeroesOfHordo {
         System.out.println("Welcome to Heroes of Hordo!");
         Game game = new Game();
         turns(game.players);
-        makePlayerMove(game, game.players[0]);
-        System.out.println(game.players[0].hero.getAction());
-        
-        
+        makePlayerMove(game);
         
     }
     static private void turns(Player[] arr) {
@@ -50,13 +47,17 @@ public class HeroesOfHordo {
                 return true;
     }
 
-    private static void makePlayerMove(Game game, Player player) {
-    System.out.println("Pick a action: ");
+    private static void makePlayerMove(Game game) {
+        pickAction(game);
+        
+    }
+
+    private static void pickAction(Game game) {
+        System.out.println("Pick a action: ");
         String[] tmp_choices = game.players[0].getHero().choice.printAndreturnChoices();
         Scanner sc = new Scanner(System.in);
         int tmp_action = sc.nextInt();
-        game.players[0].hero.action=tmp_choices[tmp_action-1];
-    }
+        game.players[0].hero.action=tmp_choices[tmp_action-1];}
         
         
         
