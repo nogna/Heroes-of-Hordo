@@ -28,7 +28,10 @@ public class Hero {
         setChoices();
         location = "Sandtopia";
         inventory = new Inventory();
+        /*LATER FEATURE
         gear= new Gear();
+    
+*/
     }
 
     private void setName() {
