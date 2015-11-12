@@ -13,7 +13,7 @@ import org.junit.Test;
 import static org.junit.Assert.*;
 
 /**
- *
+ * DONE
  * @author Nogna
  */
 public class ItemTest {
@@ -40,7 +40,8 @@ public class ItemTest {
     }
 
     @Test
-    public void testSomeMethod() {
+    public void testEqual() {
+        System.out.println("Equal");
         Item a = testmakeItem("Knife");
         Item b = testmakeItem("Knife");
         Item c = testmakeItem("Spoon");
