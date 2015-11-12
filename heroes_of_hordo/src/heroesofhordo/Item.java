@@ -12,7 +12,7 @@ package heroesofhordo;
 class Item {
 
     static boolean equal(Item a, Item b) {
-    if (a.item_name ==b.item_name || a.item_level == b.item_level){
+    if (a.item_name ==b.item_name && a.item_level == b.item_level){
         return true;
     }else{
         return false;
