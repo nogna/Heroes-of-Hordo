@@ -22,7 +22,7 @@ public class Hero {
     private int number_races=2;
     
     public Hero(){
-        name="Albin";
+        name="";
         //setName();
         setRace(1);
         setChoices();

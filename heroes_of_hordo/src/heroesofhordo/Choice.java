@@ -43,6 +43,7 @@ class Choice {
         this.choice1="Linger forward";
         this.choice2="Go back outside";
         this.choice3="Look around";
+        
     
     }
     }

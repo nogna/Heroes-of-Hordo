@@ -16,7 +16,13 @@ class Weapon extends Item {
     public Weapon(String weapon) {
         super(weapon);
         switch (weapon){
+            
         case "Knife":
+            this.item_name=weapon;
+            this.item_level = 1;
+            this.dmg = 10;
+            
+        case "Stick":
             this.item_name=weapon;
             this.item_level = 1;
             this.dmg = 10;

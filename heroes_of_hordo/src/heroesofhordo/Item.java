@@ -19,25 +19,8 @@ class Item {
     }
 
     private String makeItem(String component) {
-        //TODO FLERA ITEMS
-        /*switch (component){
-        case "helm":
-            this.item_level = 1;
-            return component;
-    }
-        case "turso":
-            this.item_level = 1;
-            this.item_name=component;
-        case "pants":
-            this.item_name=component;
-            this.item_level = 1;
-        case "boots":
-            this.item_name=component;
-            this.item_level = 1;
-    }   */
-        this.item_level = 1;
+    this.item_level = 1;
     return component;
-
     }
     
 }

@@ -17,13 +17,24 @@ public class HeroesOfHordo {
      * @param args the command line arguments
      */
     public static void main(String[] args) {
+        boolean cont=true;
         System.out.println("Welcome to Heroes of Hordo!");
         Game game = new Game();
-        turns(game.players);
-        makePlayerMove(game);
+        while (cont){
+            Player activePlayer = turns(game.players);
+            makePlayerMove(game);
+            activePlayerAction(activePlayer);
+            
+        
+        
+        cont = askContinue();
+        }
+        
+        
         
     }
-    static private void turns(Player[] arr) {
+    
+    static private Player turns(Player[] arr) {
 	if (arr == null) {
 	    throw new IllegalArgumentException("Illegal argument!");
 	}
@@ -35,6 +46,7 @@ public class HeroesOfHordo {
 			arr[j - 1] = temp;
 		}
 	}
+        return arr[0];
 }
     private static boolean askContinue() {
         System.out.println("Vill du avsluta?: (y/n)");
@@ -57,7 +69,28 @@ public class HeroesOfHordo {
         String[] tmp_choices = game.players[0].getHero().choice.printAndreturnChoices();
         Scanner sc = new Scanner(System.in);
         int tmp_action = sc.nextInt();
-        game.players[0].hero.action=tmp_choices[tmp_action-1];}
+        game.players[0].hero.action=tmp_choices[tmp_action-1];
+    }
+
+    private static void activePlayerAction(Player activePlayer) {
+                switch (activePlayer.hero.action) {
+                case "Go inside":
+                    System.out.println("The doors makes a small noise when you open the door.");
+                    activePlayer.hero.location= "Sandtopia - Dark Alley";
+                
+                case "Knock":
+                    System.out.println("Knock...Knock...Knock");
+                
+                case "Yell at the door":
+                    System.out.println("No one seems to care.");
+                    
+                case "Search inventory":
+                    activePlayer.hero.location= "INVENTORY";
+                    
+                
+                
+            }
+    }
         
         
         
