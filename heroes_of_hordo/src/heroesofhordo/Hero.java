@@ -12,12 +12,13 @@ import java.util.Scanner;
  * @author Albin Sundqvist
  */
 public class Hero {
-    String name, location;
+    String name, location, action;
     Race race;
     Choice choice;
     Inventory inventory;
     Gear gear;
     Weapon righthand;
+    
     private int number_races=2;
     
     public Hero(){
@@ -52,6 +53,10 @@ public class Hero {
             this.choice = new Choice();
         }
     
+    }
+
+    String getAction() {
+        return action;
     }
     
     

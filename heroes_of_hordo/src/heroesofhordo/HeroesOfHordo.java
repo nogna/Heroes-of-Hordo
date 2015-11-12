@@ -17,19 +17,21 @@ public class HeroesOfHordo {
      * @param args the command line arguments
      */
     public static void main(String[] args) {
-        System.out.println("Välkomna till Heroes of Hordo!");
+        System.out.println("Welcome to Heroes of Hordo!");
         Game game = new Game();
-        System.out.println(game.players[0].getHero().choice.choice1);
-        System.out.println(game.players[0].getHero().choice.choice4);
-        turns(game.players, game.how_many_turns);
+        turns(game.players);
+        makePlayerMove(game, game.players[0]);
+        System.out.println(game.players[0].hero.getAction());
+        
+        
         
     }
-    static private void turns(Player[] arr, int how_many_turns) {
-	if (arr == null || how_many_turns < 0) {
+    static private void turns(Player[] arr) {
+	if (arr == null) {
 	    throw new IllegalArgumentException("Illegal argument!");
 	}
  
-	for (int i = 0; i < how_many_turns; i++) {
+	for (int i = 0; i < 1; i++) {
 		for (int j = arr.length - 1; j > 0; j--) {
 			Player temp = arr[j];
 			arr[j] = arr[j - 1];
@@ -39,8 +41,8 @@ public class HeroesOfHordo {
 }
     private static boolean askContinue() {
         System.out.println("Vill du avsluta?: (y/n)");
-        Scanner sc2 = new Scanner(System.in);
-        switch (sc2.nextLine().charAt(0)){
+        Scanner sc = new Scanner(System.in);
+        switch (sc.nextLine().charAt(0)){
             case 'y':
                 return false;
             }
@@ -48,4 +50,15 @@ public class HeroesOfHordo {
                 return true;
     }
 
+    private static void makePlayerMove(Game game, Player player) {
+    System.out.println("Pick a action: ");
+        String[] tmp_choices = game.players[0].getHero().choice.printAndreturnChoices();
+        Scanner sc = new Scanner(System.in);
+        int tmp_action = sc.nextInt();
+        game.players[0].hero.action=tmp_choices[tmp_action-1];
+    }
+        
+        
+        
 }
+
