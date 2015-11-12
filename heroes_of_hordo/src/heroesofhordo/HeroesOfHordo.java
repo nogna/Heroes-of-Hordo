@@ -19,8 +19,10 @@ public class HeroesOfHordo {
     public static void main(String[] args) {
         System.out.println("Välkomna till Heroes of Hordo!");
         Game game = new Game();
+        System.out.println(game.players[0].getHero().choice.choice1);
+        System.out.println(game.players[0].getHero().choice.choice4);
         turns(game.players, game.how_many_turns);
-
+        
     }
     static private void turns(Player[] arr, int how_many_turns) {
 	if (arr == null || how_many_turns < 0) {

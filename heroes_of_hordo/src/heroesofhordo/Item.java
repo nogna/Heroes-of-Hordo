@@ -15,24 +15,29 @@ class Item {
     
 
     Item(String component) {
-       makeItem(component);
+       item_name = makeItem(component);
     }
 
-    private void makeItem(String component) {
-    switch (component){
+    private String makeItem(String component) {
+        //TODO FLERA ITEMS
+        /*switch (component){
         case "helm":
-            this.item_name=component;
-            this.item_level = 10;
+            this.item_level = 1;
+            return component;
+    }
         case "turso":
+            this.item_level = 1;
             this.item_name=component;
-            this.item_level = 10;
         case "pants":
             this.item_name=component;
-            this.item_level = 10;
+            this.item_level = 1;
         case "boots":
             this.item_name=component;
-            this.item_level = 10;
-    }
+            this.item_level = 1;
+    }   */
+        this.item_level = 1;
+    return component;
+
     }
     
 }

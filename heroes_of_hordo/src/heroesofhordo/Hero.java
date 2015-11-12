@@ -17,10 +17,12 @@ public class Hero {
     Choice choice;
     Inventory inventory;
     Gear gear;
-    
+    Weapon righthand;
     private int number_races=2;
+    
     public Hero(){
-        setName();
+        name="Albin";
+        //setName();
         setRace();
         setChoices();
         location = "Sandtopia";
@@ -36,16 +38,11 @@ public class Hero {
     }
 
     private void setRace() {
-        Scanner sc = new Scanner(System.in);
         System.out.println("Välj vilken class du vill vara?");  
-        System.out.print("Välj mellan 1-" + number_races+":");  
+        System.out.print("Välj mellan 1-" + number_races+": ");  
+        Scanner sc = new Scanner(System.in);
         int tmp_race = sc.nextInt();
-            race=new Race(tmp_race);
-        
-                
-        
-        
-        
+        race=new Race(tmp_race);  
     }
 
     private void setChoices() {

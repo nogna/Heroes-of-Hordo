@@ -13,19 +13,26 @@ class Race {
     String race_name;
     int strength, wisdom, agility, luck;
     public Race(int race){
+        this.race_name=setRace(race);
+    }
+
+    private String setRace(int race) {
         switch (race){
-            case 1:
-                race_name = "Opopilopop";
-                strength=50;
-                wisdom = 30;
-                agility = 70;
-                luck = 20;
-            case 2:
-                race_name = "Bytrand";
-                strength=30;
-                wisdom = 50;
-                agility = 70;
-                luck = 20;
+        case 1:
+            this.strength=50;
+            this.wisdom = 30;
+            this.agility = 70;
+            this.luck = 20;
+            return "Opopilopop";
+        case 2:
+            this.strength=30;
+            this.wisdom = 50;
+            this.agility = 70;
+            this.luck = 20;
+            return "Kraxlax";
+
         }
+        return "";
     }
 }
+

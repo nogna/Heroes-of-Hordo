@@ -16,7 +16,8 @@ public class Game {
     Player[] players;
     
     public Game(){
-        setup();
+        setup(1);
+        //TODO
         
     }
     
@@ -26,6 +27,10 @@ public class Game {
     System.out.println("Välj hur många spelare: ");
     int tmp_players = sc.nextInt();
     return tmp_players;
+    }
+    private static int HowManyPlayers(int number_of_players) {
+
+    return number_of_players;
     }
 
 
@@ -54,6 +59,11 @@ public class Game {
     how_many_players = HowManyPlayers();
     players = CreatePlayers(how_many_players);
     how_many_turns= HowManyTurns();
+    }
+    private void setup(int i) {
+    how_many_players = HowManyPlayers(i);
+    players = CreatePlayers(i);
+    how_many_turns= HowManyTurns(i);
     }
 
     private int HowManyTurns() {

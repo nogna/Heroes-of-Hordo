@@ -25,7 +25,7 @@ class Choice {
 
     private void setChoices(String location) {
     switch(location){
-        case "":
+        case (""):
         this.choice1="Exit Game";
         this.choice2="No I want to play more";
         this.choice3="";
