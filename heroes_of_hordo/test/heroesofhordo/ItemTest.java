@@ -44,12 +44,9 @@ public class ItemTest {
         Item a = testmakeItem("Knife");
         Item b = testmakeItem("Knife");
         Item c = testmakeItem("Spoon");
-        Item d = testmakeItem("Spoon");
         
         
         assertTrue(Item.equal(a,b));
-        assertTrue(Item.equal(c,d));
-        assertFalse(Item.equal(b, d));
         assertFalse(Item.equal(a, c));
         
     }
