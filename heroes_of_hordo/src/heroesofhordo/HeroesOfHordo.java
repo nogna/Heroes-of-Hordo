@@ -77,17 +77,17 @@ public class HeroesOfHordo {
                 case "Go inside":
                     System.out.println("The doors makes a small noise when you open the door.");
                     activePlayer.hero.location= "Sandtopia - Dark Alley";
-                
+                    break;
                 case "Knock":
                     System.out.println("Knock...Knock...Knock");
-                
+                    break;
                 case "Yell at the door":
                     System.out.println("No one seems to care.");
-                    
+                    break;
                 case "Search inventory":
                     activePlayer.hero.location= "INVENTORY";
+                    break;
                     
-                
                 
             }
     }

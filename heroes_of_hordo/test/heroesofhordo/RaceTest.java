@@ -11,7 +11,7 @@ import org.junit.Test;
 import static org.junit.Assert.*;
 
 /**
- *  TODO
+ *  DONE
  * @author Nogna
  */
 public class RaceTest {
@@ -28,9 +28,28 @@ public class RaceTest {
     }
 
     @Test
-    public void testSomeMethod() {
-        // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
+    public void testEqualRace() {
+    Race a = testmakeRace(1);
+    Race b = testmakeRace(2);
+    Race c = testmakeRace(2);
+    
+    assertFalse(Race.equalRace(a, c));
+    assertTrue(Race.equalRace(b,c));
+    }
+    @Test
+    public void testEqualStats(){
+    Race a = testmakeRace(1);
+    Race b = testmakeRace(2);
+    Race c = testmakeRace(2);
+    
+    assertFalse(Race.equalStats(a,b));
+    assertTrue(Race.equalStats(b,c));
+    
+    }
+
+    private Race testmakeRace(int i) {
+    Race tmp_race = new Race(i);
+    return tmp_race;
     }
     
 }

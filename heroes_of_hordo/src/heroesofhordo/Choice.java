@@ -31,19 +31,20 @@ class Choice {
         this.choice2="No I want to play more";
         this.choice3="";
         this.choice4="";   
+        break;
         
         case ("DEAD"):
         this.choice1="Search for Mr. Death";
         this.choice2="";
         this.choice3="";
         this.choice4="";   
-
+        break;
     
         case ("Sandtopia - Dark Alley"):
         this.choice1="Linger forward";
         this.choice2="Go back outside";
         this.choice3="Look around";
-        
+        break;
     
     }
     }
