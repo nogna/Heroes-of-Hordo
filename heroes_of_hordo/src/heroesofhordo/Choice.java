@@ -13,12 +13,12 @@ class Choice {
     String[] choice;
     
     public Choice(){
-    choice = new String[5];
+    this.choice = new String[5];
     setChoices("Sandtopia");
     }
     
     public Choice(String location) {
-    choice = new String[5];
+    this.choice = new String[5];
     setChoices(location);
     }
 

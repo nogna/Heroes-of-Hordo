@@ -30,16 +30,26 @@ public class Game {
     int tmp_players = sc.nextInt();
     return tmp_players;
     }
-    private static int HowManyPlayers(int number_of_players) {
 
-    return number_of_players;
+    
+    static public void turns(Player[] arr) {
+	if (arr == null) {
+	    throw new IllegalArgumentException("Illegal argument!");
+	}
+ 
+	for (int i = 0; i < 1; i++) {
+		for (int j = arr.length - 1; j > 0; j--) {
+			Player temp = arr[j];
+			arr[j] = arr[j - 1];
+			arr[j - 1] = temp;
+		}
+	}
     }
     
     
-    
-    private Player[] CreatePlayers(int how_many_players) {
-        Player[] players = new Player[how_many_players];
-        for (int i = 0; i < how_many_players; i++) {
+    private Player[] CreatePlayers(int HowManyPlayers) {
+        Player[] players = new Player[HowManyPlayers];
+        for (int i = 0; i < HowManyPlayers; i++) {
             players[i]= new Player(i);
             System.out.println(players[i].getPlayer());
             
@@ -54,9 +64,9 @@ public class Game {
     
     
     
-    private void PrintPlayers() {
+    public void PrintPlayers() {
         for (int i = 0; i < Player.total_player_number; i++) {
-            System.out.println("Player: "+ players[i].getPlayer());
+            System.out.println("Player: "+ (players[i].getPlayer()+1));
         }
 }
     private void setup() {
@@ -70,7 +80,7 @@ public class Game {
     
     }
     private void setup(int i) {
-    how_many_players = HowManyPlayers(i);
+    how_many_players = i;
     players = CreatePlayers(i);
     }
  

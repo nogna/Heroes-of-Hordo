@@ -37,6 +37,8 @@ public class Hero {
         name="";
         location = "Sandtopia";
         inventory = new Inventory();
+        action = "";
+        choice=new Choice();
         /*LATER FEATURE
         gear= new Gear();
     

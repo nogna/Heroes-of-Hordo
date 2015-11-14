@@ -43,7 +43,6 @@ class Inventory {
     this.items=new Item[1];
     total_number_items++;
     items[0] = new Weapon("Knife");
-    
     }
     
     public void printInventory(){

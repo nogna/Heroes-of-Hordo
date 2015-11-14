@@ -17,90 +17,73 @@ public class HeroesOfHordo {
      * @param args the command line arguments
      */
     public static void main(String[] args) {
-        boolean cont=true;
+        boolean Cont = true;
         System.out.println("Welcome to Heroes of Hordo!");
         Game game = new Game();
-        while (cont){
-            Player activePlayer = turns(game.players);
-            makePlayerMove(game);
-            activePlayerAction(activePlayer);
+        while (Cont) {
+            game.PrintPlayers();
+            //game.turns(game.players);    
+            game.players[0].hero.action = getPlayerAction(game.players[0]);
+            System.out.println(game.players[0].hero.location);
+            game.players[0].hero.location = ActivePlayerAction(game.players[0].hero.action);
+            System.out.println(game.players[0].hero.location);
             
-        
-        
-        cont = askContinue();
+            //Cont = askContinue();
         }
-        
-        
-        
     }
-    
-    static private Player turns(Player[] arr) {
-	if (arr == null) {
-	    throw new IllegalArgumentException("Illegal argument!");
-	}
- 
-	for (int i = 0; i < 1; i++) {
-		for (int j = arr.length - 1; j > 0; j--) {
-			Player temp = arr[j];
-			arr[j] = arr[j - 1];
-			arr[j - 1] = temp;
-		}
-	}
-        return arr[0];
-}
-    private static boolean askContinue() {
-        System.out.println("Vill du avsluta?: (y/n)");
+
+    private static String getPlayerAction(Player ActivePlayer) {
+        int tmpAction;
+        String[] tmpChoices = ActivePlayer.getHero().choice.getChoices();
+        ActivePlayer.hero.choice.printChoices();
+        System.out.println("Choose between 1-" + tmpChoices.length + ": ");
+        System.out.println("Pick a action: ");
         Scanner sc = new Scanner(System.in);
-        switch (sc.nextLine().charAt(0)){
+        do {
+            CheckIfInt(sc, tmpChoices);
+            tmpAction = sc.nextInt();
+        } while (validInt(tmpAction, tmpChoices));
+        return tmpChoices[tmpAction - 1];
+    }
+
+    private static String ActivePlayerAction(String Action) {
+        switch (Action) {
+            case "Go inside":
+                System.out.println("The doors makes a small noise when you open the door.");
+                return "Sandtopia - Dark Alley";
+            case "Knock":
+                System.out.println("Knock...Knock...Knock");
+                break;
+            case "Yell at the door":
+                System.out.println("No one seems to care.");
+                break;
+            case "Search inventory":
+                return "INVENTORY";
+
+        }
+        return "";
+    }
+
+    private static boolean askContinue() {
+        System.out.println("Exit Game?: (y/n)");
+        Scanner sc = new Scanner(System.in);
+        switch (sc.nextLine().charAt(0)) {
             case 'y':
                 return false;
-            }
-
-                return true;
-    }
-
-    private static void makePlayerMove(Game game) {
-        pickAction(game);
-        
-    }
-
-    private static void pickAction(Game game) {
-        System.out.println("Pick a action: ");
-        String[] tmp_choices = game.players[0].getHero().choice.getChoices();
-        Scanner sc = new Scanner(System.in);
-        int tmp_action;
-        do{
-            while (!sc.hasNextInt()) {
-            game.players[0].hero.choice.printChoices();
-            System.out.println("Choose between 1-" + tmp_choices.length);
-            sc.next(); 
         }
-        tmp_action = sc.nextInt();
-        } while (tmp_action <=0);
-        game.players[0].hero.action=tmp_choices[tmp_action-1];
-    }
-    
-    private static void activePlayerAction(Player activePlayer) {
-                switch (activePlayer.hero.action) {
-                case "Go inside":
-                    System.out.println("The doors makes a small noise when you open the door.");
-                    activePlayer.hero.location= "Sandtopia - Dark Alley";
-                    break;
-                case "Knock":
-                    System.out.println("Knock...Knock...Knock");
-                    break;
-                case "Yell at the door":
-                    System.out.println("No one seems to care.");
-                    break;
-                case "Search inventory":
-                    activePlayer.hero.location= "INVENTORY";
-                    break;
-                    
-                
-            }
-    }
-        
-        
-        
-}
 
+        return true;
+    }
+
+    private static void CheckIfInt(Scanner Input, String[] Choice) {
+        while (!Input.hasNextInt()) {
+            System.out.print("Plz a number between 1-" + Choice.length + ": ");
+            Input.next();
+        }
+    }
+
+    private static boolean validInt(int Action, String[] Choice) {
+        return (Action <= 1 && Action >= Choice.length);
+    }
+
+}

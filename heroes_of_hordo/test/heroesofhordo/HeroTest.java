@@ -36,7 +36,7 @@ public class HeroTest {
     public void testGetAction() {
         System.out.println("getAction");
         Hero instance = new Hero();
-        String expResult = null;
+        String expResult = "";
         String result = instance.getAction();
         assertEquals(expResult, result);
         
