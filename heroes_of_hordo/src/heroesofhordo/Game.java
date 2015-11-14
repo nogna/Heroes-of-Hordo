@@ -18,7 +18,7 @@ public class Game {
     
     
     public Game(){
-        setup(1);
+        Setup(1);
         
         
     }
@@ -69,7 +69,7 @@ public class Game {
             System.out.println("Player: "+ (players[i].getPlayer()+1));
         }
 }
-    private void setup() {
+    private void Setup() {
     how_many_players = HowManyPlayers();
     players = CreatePlayers(how_many_players);
         for (int i = 0; i < how_many_players; i++) {
@@ -79,7 +79,7 @@ public class Game {
         }
     
     }
-    private void setup(int i) {
+    private void Setup(int i) {
     how_many_players = i;
     players = CreatePlayers(i);
     }

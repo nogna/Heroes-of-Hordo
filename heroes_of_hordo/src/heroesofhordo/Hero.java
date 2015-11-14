@@ -14,8 +14,8 @@ import java.util.Scanner;
 public class Hero {
 
     static boolean equalChoice(Choice A, String[] B) {
-        for (int i = 0; i < A.choice.length; i++) {
-            if (A.choice[i] != B[i]) {
+        for (int i = 0; i < A.choices.length; i++) {
+            if (A.choices[i] != B[i]) {
                return false; 
             }
             

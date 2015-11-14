@@ -10,64 +10,69 @@ package heroesofhordo;
  * @author Nogna
  */
 class Choice {
-    String[] choice;
-    
-    public Choice(){
-    this.choice = new String[5];
-    setChoices("Sandtopia");
-    }
-    
-    public Choice(String location) {
-    
-    setChoices(location);
+
+    String[] choices;
+
+    public Choice() {
+        this.choices = new String[5];
+        setChoices("Sandtopia");
     }
 
-    private void setChoices(String location) {
-    
-    switch(location){
-        
-        case ("Sandtopia"):
-        this.choice[0]="Go inside";
-        this.choice[1]="Knock";
-        this.choice[2]="Yell at the door";
-        this.choice[3]="Search inventory";
-        this.choice[4]="Exit Game";
-        break;
-        case ("WIN"):
-        this.choice[0]="Victory Dance";
-        this.choice[1]="No I want to play more";
-        this.choice[2]="";
-        this.choice[3]="";   
-        this.choice[4]="Exit Game";
-        break;
-        
-        case ("DEAD"):
-        this.choice[0]="Search for Mr. Death";
-        this.choice[1]="";
-        this.choice[2]="";
-        this.choice[3]="";   
-        break;
-    
-        case ("Sandtopia - Dark Alley"):
-        this.choice[0]="Linger forward";
-        this.choice[1]="Go back outside";
-        this.choice[2]="Look around";
-        this.choice[3]="Search inventory";
-        this.choice[4]="Exit Game";
-        break;
-    
-    }
+    public void setChoices(String Location) {
+
+        switch (Location) {
+
+            case ("Sandtopia"):
+                setChoicesSandtopia();
+                break;
+            case ("WIN"):
+                won();
+                break;
+
+            case ("DEAD"):
+                dead();
+                break;
+
+            case ("Sandtopia - Dark Alley"):
+                setChoicesSandtopia_DarkAlley();
+                break;
+
+        }
     }
 
     void printChoices() {
         for (int i = 0; i < 5; i++) {
-            System.out.println("Action "+(i+1)+": "+choice[i]);    
+            System.out.println("Action " + (i + 1) + ": " + choices[i]);
         }
-        
+
     }
-    
-    String[] getChoices(){
-        return choice;
+
+    String[] getChoices() {
+        return choices;
     }
-    
+
+    private void setChoicesSandtopia() {
+        this.choices[0] = "Go inside";
+        this.choices[1] = "Knock";
+        this.choices[2] = "Yell at the door";
+        this.choices[3] = "Search inventory";
+        this.choices[4] = "Exit Game";
+    }
+
+    private void won() {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
+
+    private void dead() {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
+
+    private void setChoicesSandtopia_DarkAlley() {
+        this.choices[0] = "Linger forward";
+        this.choices[1] = "Go back outside";
+        this.choices[2] = "Look around";
+        this.choices[3] = "Search inventory";
+        this.choices[4] = "Exit Game";
+    }
+
 }
