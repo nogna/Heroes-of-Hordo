@@ -11,7 +11,7 @@ import org.junit.Test;
 import static org.junit.Assert.*;
 
 /**
- *  
+ *  DONE
  * @author Nogna
  */
 public class WeaponTest {
@@ -29,9 +29,9 @@ public class WeaponTest {
 
     @Test
     public void testEqualWeapon() {
-    Weapon a = testmakeWeapon("Knife");
-    Weapon b = testmakeWeapon("Knife");
-    Weapon c = testmakeWeapon("Stick");
+    Weapon a = new Weapon("Knife");
+    Weapon b = new Weapon("Knife");
+    Weapon c = new Weapon("Stick");
     
     assertTrue(Weapon.equalWeapon(a,b));
     assertFalse(Weapon.equalWeapon(a, c));
@@ -39,18 +39,14 @@ public class WeaponTest {
     
     @Test
     public void testEqualStats(){
-    Weapon a = testmakeWeapon("Knife");
-    Weapon b = testmakeWeapon("Knife");
-    Weapon c = testmakeWeapon("Stick");
+    Weapon a = new Weapon("Knife");
+    Weapon b = new Weapon("Knife");
+    Weapon c = new Weapon("Stick");
     
     assertTrue(Weapon.equalStats(a,b));
-    assertFalse(Weapon.equalStats(a,c)); //WTF??? == True 
+    assertFalse(Weapon.equalStats(a,c)); 
     
     }
 
-    private Weapon testmakeWeapon(String typeofwep) {
-    Weapon tmp_weapon = new Weapon(typeofwep);
-        System.out.println(tmp_weapon.dmg);
-    return tmp_weapon;
-    }
+ 
 }

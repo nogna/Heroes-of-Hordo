@@ -27,19 +27,6 @@ public class PlayerTest {
     public static void tearDownClass() {
     }
 
-    /**
-     * Test of getTotalPlayerNumber method, of class Player.
-     */
-    @Test
-    public void testGetTotalPlayerNumber() {
-        System.out.println("getTotalPlayerNumber");
-        Player instance = null;
-        int expResult = 0;
-        int result = instance.getTotalPlayerNumber();
-        assertEquals(expResult, result);
-        // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
-    }
 
     /**
      * Test of getPlayer method, of class Player.
@@ -47,12 +34,12 @@ public class PlayerTest {
     @Test
     public void testGetPlayer() {
         System.out.println("getPlayer");
-        Player instance = null;
-        int expResult = 0;
-        int result = instance.getPlayer();
+        Player test_player1 = new Player(1);
+        Player test_player2 = new Player(2);
+        int expResult = 2;
+        int result = test_player2.getPlayer();
         assertEquals(expResult, result);
-        // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
+        
     }
 
     /**
@@ -61,12 +48,27 @@ public class PlayerTest {
     @Test
     public void testGetHero() {
         System.out.println("getHero");
-        Player instance = null;
-        Hero expResult = null;
+        Player instance = new Player(1);
+        Hero expResult = new Hero();
         Hero result = instance.getHero();
-        assertEquals(expResult, result);
-        // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
+        expResult.equals(result);
+        
     }
+    
+    /**
+     * Test of getTotalPlayerNumber method, of class Player.
+     */
+    
+    @Test
+    public void testGetTotalPlayerNumber() {
+        System.out.println("getTotalPlayerNumber");
+        Player test_player1 = new Player(1);
+        Player test_player2 = new Player(2);
+        Player test_player3 = new Player(3);
+        int expResult = 3;
+        int result = test_player1.getTotalPlayerNumber();
+        assertEquals(expResult, result);
+    }
+
     
 }

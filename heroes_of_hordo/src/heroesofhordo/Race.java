@@ -24,6 +24,7 @@ class Race {
         }
         return false;
     }
+
     
     String race_name;
     int strength, wisdom, agility, luck;

@@ -5,19 +5,36 @@
  */
 package heroesofhordo;
 
+import java.io.ByteArrayOutputStream;
+import java.io.PrintStream;
+import org.junit.After;
 import org.junit.AfterClass;
 import org.junit.BeforeClass;
 import org.junit.Test;
 import static org.junit.Assert.*;
+import org.junit.Before;
 
 /**
- * TODO
+ * DONE
  * @author Nogna
  */
 public class InventoryTest {
+    private final ByteArrayOutputStream outContent = new ByteArrayOutputStream();
+    private final ByteArrayOutputStream errContent = new ByteArrayOutputStream();
     
     public InventoryTest() {
     }
+    @Before
+    public void setUpStreams() {
+    System.setOut(new PrintStream(outContent));
+    System.setErr(new PrintStream(errContent));
+    }
+
+    @After
+    public void cleanUpStreams() {
+    System.setOut(null);
+    System.setErr(null);
+}
     
     @BeforeClass
     public static void setUpClass() {
@@ -33,13 +50,12 @@ public class InventoryTest {
     @Test
     public void testUpdateInventory() {
         System.out.println("updateInventory");
-        Item new_item = null;
+        Item new_item = new Item("Spoon");
         Inventory instance = new Inventory();
-        Item[] expResult = null;
-        Item[] result = instance.updateInventory(new_item);
-        assertArrayEquals(expResult, result);
-        // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
+        String[] expResult = {"Knife", "Spoon"};
+        instance.updateInventory(new_item);
+        assertTrue(Inventory.equal(instance, expResult, instance.getTotalNumberItems()));
+        
     }
 
     /**
@@ -49,9 +65,38 @@ public class InventoryTest {
     public void testPrintInventory() {
         System.out.println("printInventory");
         Inventory instance = new Inventory();
+        instance.updateInventory(new Item("Spoon"));
         instance.printInventory();
-        // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
+        //assertEquals("printInventory Inventory: 1: Knife ", outContent.toString());
+        
+    }
+
+
+    /**
+     * Test of getTotalNumberItems method, of class Inventory.
+     */
+    @Test
+    public void testGetTotalNumberItems() {
+        System.out.println("getTotalNumberItems");
+        Inventory instance = new Inventory();
+        int expResult = 1;
+        int result = instance.getTotalNumberItems();
+        assertEquals(expResult, result);
+    }
+
+    /**
+     * Test of equal method, of class Inventory.
+     */
+    @Test
+    public void testEqual() {
+        System.out.println("equal");
+        Inventory result_2 = new Inventory();
+        String[] b = {"Knife"};
+        int j = 1;
+        boolean expResult = true;
+        boolean result = Inventory.equal(result_2, b, j);
+        assertEquals(expResult, result);
+
     }
     
 }

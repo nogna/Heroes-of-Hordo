@@ -29,27 +29,23 @@ public class RaceTest {
 
     @Test
     public void testEqualRace() {
-    Race a = testmakeRace(1);
-    Race b = testmakeRace(2);
-    Race c = testmakeRace(2);
+    Race a = new Race(1);
+    Race b = new Race(2);
+    Race c = new Race(2);
     
     assertFalse(Race.equalRace(a, c));
     assertTrue(Race.equalRace(b,c));
     }
     @Test
     public void testEqualStats(){
-    Race a = testmakeRace(1);
-    Race b = testmakeRace(2);
-    Race c = testmakeRace(2);
+    Race a = new Race(1);
+    Race b = new Race(2);
+    Race c = new Race(2);
     
     assertFalse(Race.equalStats(a,b));
     assertTrue(Race.equalStats(b,c));
     
     }
 
-    private Race testmakeRace(int i) {
-    Race tmp_race = new Race(i);
-    return tmp_race;
-    }
-    
+
 }

@@ -19,7 +19,6 @@ public Player(int i) {
     total_player_number++;
     player_number= i;
     setHero();
-
     }
 
 

@@ -12,20 +12,29 @@ import java.util.Scanner;
  * @author Albin Sundqvist
  */
 public class Hero {
+
+    static boolean equalChoice(Choice a, String[] b) {
+        for (int i = 0; i < a.choice.length; i++) {
+            if (a.choice[i] != b[i]) {
+               return false; 
+            }
+            
+            
+        }
+        return true;
+    }
+    
     String name, location, action;
     Race race;
     Choice choice;
     Inventory inventory;
-    Gear gear;
+    Gear gear; //Later feature
     Weapon righthand;
     
     private int number_races=2;
     
     public Hero(){
         name="";
-        //setName();
-        setRace(1);
-        setChoices();
         location = "Sandtopia";
         inventory = new Inventory();
         /*LATER FEATURE
@@ -34,36 +43,46 @@ public class Hero {
 */
     }
 
-    private void setName() {
+    public void setName() {
         Scanner sc = new Scanner(System.in);
-        System.out.print("Skriv in namnet på din hero: ");
+        System.out.print("Write your heros name: ");
         String tmp_name = sc.nextLine();
         name = tmp_name;  
     }
 
-    private void setRace() {
-        System.out.println("Välj vilken class du vill vara?");  
-        System.out.print("Välj mellan 1-" + number_races+": ");  
+    public void setRace() {
         Scanner sc = new Scanner(System.in);
-        int tmp_race = sc.nextInt();
-        race=new Race(tmp_race);  
+        System.out.println("Pick race:");  
+        int tmp_race;
+        do {
+        System.out.print("Choose between 1-" + number_races+": ");  
+        while (!sc.hasNextInt()) {
+            System.out.println("That's not a number!");
+            sc.next(); 
+        }
+            tmp_race = sc.nextInt();
+    } while (tmp_race <= 0);
+       
+        race=new Race(tmp_race);
+        System.out.println("You chose: "+ race.race_name);
     }
     
-    private void setRace(int i) {
+    public void setRace(int i) {
      race=new Race(i);
     }
 
 
-    private void setChoices() {
-        if (location !=null) {
+    public void setChoices() {
             this.choice = new Choice(location);
-        }else{
-            this.choice = new Choice();
-        }
+
     
     }
+    
+    public String getLocation(){
+        return location;
+    }
 
-    String getAction() {
+    public String getAction() {
         return action;
     }
 

@@ -10,56 +10,63 @@ package heroesofhordo;
  * @author Nogna
  */
 class Choice {
-    String choice1, choice2, choice3, choice4, choice5;
+    String[] choice;
     
     public Choice(){
-        this.choice1="Go inside";
-        this.choice2="Knock";
-        this.choice3="Yell at the door";
-        this.choice4="Search inventory";
-        this.choice5="Exit Game";
+    choice = new String[5];
+    setChoices("Sandtopia");
     }
     
     public Choice(String location) {
+    choice = new String[5];
     setChoices(location);
     }
 
     private void setChoices(String location) {
+    
     switch(location){
+        
+        case ("Sandtopia"):
+        this.choice[0]="Go inside";
+        this.choice[1]="Knock";
+        this.choice[2]="Yell at the door";
+        this.choice[3]="Search inventory";
+        this.choice[4]="Exit Game";
+        break;
         case ("WIN"):
-        this.choice1="Victory Dance";
-        this.choice2="No I want to play more";
-        this.choice3="";
-        this.choice4="";   
+        this.choice[0]="Victory Dance";
+        this.choice[1]="No I want to play more";
+        this.choice[2]="";
+        this.choice[3]="";   
         break;
         
         case ("DEAD"):
-        this.choice1="Search for Mr. Death";
-        this.choice2="";
-        this.choice3="";
-        this.choice4="";   
+        this.choice[0]="Search for Mr. Death";
+        this.choice[1]="";
+        this.choice[2]="";
+        this.choice[3]="";   
         break;
     
         case ("Sandtopia - Dark Alley"):
-        this.choice1="Linger forward";
-        this.choice2="Go back outside";
-        this.choice3="Look around";
+        this.choice[0]="Linger forward";
+        this.choice[1]="Go back outside";
+        this.choice[2]="Look around";
+        this.choice[3]="Search inventory";
+        this.choice[4]="Exit Game";
         break;
     
     }
     }
 
-    String[] printAndreturnChoices() {
-        String[] tmp_choices = new String[5];
-        tmp_choices[0] = choice1;
-        tmp_choices[1] = choice2;
-        tmp_choices[2] = choice3;
-        tmp_choices[3] = choice4;
-        tmp_choices[4] = choice5;
-        for (int i = 0; i < 4; i++) {
-            System.out.println("Action "+(i+1)+": "+tmp_choices[i]);    
+    void printChoices() {
+        for (int i = 0; i < 5; i++) {
+            System.out.println("Action "+(i+1)+": "+choice[i]);    
         }
-        return tmp_choices;
+        
+    }
+    
+    String[] getChoices(){
+        return choice;
     }
     
 }

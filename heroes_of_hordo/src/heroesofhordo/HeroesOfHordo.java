@@ -66,12 +66,20 @@ public class HeroesOfHordo {
 
     private static void pickAction(Game game) {
         System.out.println("Pick a action: ");
-        String[] tmp_choices = game.players[0].getHero().choice.printAndreturnChoices();
+        String[] tmp_choices = game.players[0].getHero().choice.getChoices();
         Scanner sc = new Scanner(System.in);
-        int tmp_action = sc.nextInt();
+        int tmp_action;
+        do{
+            while (!sc.hasNextInt()) {
+            game.players[0].hero.choice.printChoices();
+            System.out.println("Choose between 1-" + tmp_choices.length);
+            sc.next(); 
+        }
+        tmp_action = sc.nextInt();
+        } while (tmp_action <=0);
         game.players[0].hero.action=tmp_choices[tmp_action-1];
     }
-
+    
     private static void activePlayerAction(Player activePlayer) {
                 switch (activePlayer.hero.action) {
                 case "Go inside":

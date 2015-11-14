@@ -18,17 +18,25 @@ class Item {
         return false;
     }
     }
+
+
+
+    
+        
+    
+
     String item_name;
     int item_level;
     
 
     Item(String component) {
-       item_name = makeItem(component);
+       this.item_name = component;
+       this.item_level = 1;
+    }
+    Item(String component, int i) {
+       this.item_name = component;
+       this.item_level = i;
     }
 
-    private String makeItem(String component) {
-    this.item_level = 1;
-    return component;
-    }
     
 }
