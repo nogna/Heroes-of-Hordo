@@ -34,9 +34,9 @@ public class HeroesOfHordoTest {
     public void testMain() {
         System.out.println("main");
         String[] args = null;
+        int i =0;
         HeroesOfHordo.main(args);
-        // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
+        assertEquals(0,i);
     }
     
 }

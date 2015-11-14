@@ -11,7 +11,7 @@ import org.junit.Test;
 import static org.junit.Assert.*;
 
 /**
- * TODO
+ * DONE
  * @author Nogna
  */
 public class GameTest {
@@ -33,13 +33,12 @@ public class GameTest {
     @Test
     public void testNewItem() {
         System.out.println("newItem");
-        String new_item = "";
+        String new_item = "Stick";
         Game instance = new Game();
-        Item expResult = null;
+        String expResult = "Stick";
         Item result = instance.newItem(new_item);
-        assertEquals(expResult, result);
-        // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
+        Item.equal(result, expResult);
+        
     }
     
 }

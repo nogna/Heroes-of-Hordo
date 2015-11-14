@@ -18,6 +18,13 @@ class Item {
         return false;
     }
     }
+    static boolean equal(Item a, String b) {
+    if (a.item_name ==b){
+        return true;
+    }else{
+        return false;
+    }
+    }
 
 
 

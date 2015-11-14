@@ -15,7 +15,7 @@ import static org.junit.Assert.*;
 import org.junit.Before;
 
 /**
- * DONE
+ * TODO
  * @author Nogna
  */
 public class InventoryTest {
