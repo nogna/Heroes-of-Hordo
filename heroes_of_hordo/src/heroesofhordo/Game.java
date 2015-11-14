@@ -25,23 +25,23 @@ public class Game {
     
     
     private static int HowManyPlayers() {
-    Scanner sc = new Scanner(System.in);
+    Scanner Sc = new Scanner(System.in);
     System.out.println("How many players? ");
-    int tmp_players = sc.nextInt();
-    return tmp_players;
+    int tmpPlayers = Sc.nextInt();
+    return tmpPlayers;
     }
 
     
-    static public void turns(Player[] arr) {
-	if (arr == null) {
+    static public void turns(Player[] PlayerQueue) {
+	if (PlayerQueue == null) {
 	    throw new IllegalArgumentException("Illegal argument!");
 	}
  
 	for (int i = 0; i < 1; i++) {
-		for (int j = arr.length - 1; j > 0; j--) {
-			Player temp = arr[j];
-			arr[j] = arr[j - 1];
-			arr[j - 1] = temp;
+		for (int j = PlayerQueue.length - 1; j > 0; j--) {
+			Player temp = PlayerQueue[j];
+			PlayerQueue[j] = PlayerQueue[j - 1];
+			PlayerQueue[j - 1] = temp;
 		}
 	}
     }
@@ -57,7 +57,7 @@ public class Game {
         return players;
     }
     
-    public Item newItem(String new_item){
+    public Item NewItem(String new_item){
         Item tmp_item = new Item(new_item);
         return tmp_item;
     }

@@ -13,9 +13,9 @@ import java.util.Scanner;
  */
 public class Hero {
 
-    static boolean equalChoice(Choice a, String[] b) {
-        for (int i = 0; i < a.choice.length; i++) {
-            if (a.choice[i] != b[i]) {
+    static boolean equalChoice(Choice A, String[] B) {
+        for (int i = 0; i < A.choice.length; i++) {
+            if (A.choice[i] != B[i]) {
                return false; 
             }
             
@@ -46,10 +46,10 @@ public class Hero {
     }
 
     public void setName() {
-        Scanner sc = new Scanner(System.in);
+        Scanner Sc = new Scanner(System.in);
         System.out.print("Write your heros name: ");
-        String tmp_name = sc.nextLine();
-        name = tmp_name;  
+        String tmpName = Sc.nextLine();
+        name = tmpName;  
     }
 
     public void setRace() {
@@ -86,6 +86,10 @@ public class Hero {
 
     public String getAction() {
         return action;
+    }
+
+    void getChoices() {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
 
 

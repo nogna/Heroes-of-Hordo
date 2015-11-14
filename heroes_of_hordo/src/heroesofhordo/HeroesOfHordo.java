@@ -22,9 +22,8 @@ public class HeroesOfHordo {
         Game game = new Game();
         while (Cont) {
             game.PrintPlayers();
-            //game.turns(game.players);    
+            game.turns(game.players);    
             game.players[0].hero.action = getPlayerAction(game.players[0]);
-            System.out.println(game.players[0].hero.location);
             game.players[0].hero.location = ActivePlayerAction(game.players[0].hero.action);
             System.out.println(game.players[0].hero.location);
             
@@ -34,14 +33,14 @@ public class HeroesOfHordo {
 
     private static String getPlayerAction(Player ActivePlayer) {
         int tmpAction;
-        String[] tmpChoices = ActivePlayer.getHero().choice.getChoices();
+        String[] tmpChoices = ActivePlayer.hero.choice.getChoices();
         ActivePlayer.hero.choice.printChoices();
         System.out.println("Choose between 1-" + tmpChoices.length + ": ");
         System.out.println("Pick a action: ");
-        Scanner sc = new Scanner(System.in);
+        Scanner Sc = new Scanner(System.in);
         do {
-            CheckIfInt(sc, tmpChoices);
-            tmpAction = sc.nextInt();
+            CheckIfInt(Sc, tmpChoices);
+            tmpAction = Sc.nextInt();
         } while (validInt(tmpAction, tmpChoices));
         return tmpChoices[tmpAction - 1];
     }
@@ -75,15 +74,15 @@ public class HeroesOfHordo {
         return true;
     }
 
-    private static void CheckIfInt(Scanner Input, String[] Choice) {
+    private static void CheckIfInt(Scanner Input, String[] Choices) {
         while (!Input.hasNextInt()) {
-            System.out.print("Plz a number between 1-" + Choice.length + ": ");
+            System.out.print("Plz a number between 1-" + Choices.length + ": ");
             Input.next();
         }
     }
 
-    private static boolean validInt(int Action, String[] Choice) {
-        return (Action <= 1 && Action >= Choice.length);
+    private static boolean validInt(int Action, String[] Choices) {
+        return (Action <= 1 && Action >= Choices.length);
     }
 
 }

@@ -36,7 +36,7 @@ public class GameTest {
         String new_item = "Stick";
         Game instance = new Game();
         String expResult = "Stick";
-        Item result = instance.newItem(new_item);
+        Item result = instance.NewItem(new_item);
         Item.equal(result, expResult);
         
     }

@@ -18,6 +18,7 @@ class Choice {
     }
     
     public Choice(String location) {
+    
     setChoices(location);
     }
 
@@ -37,6 +38,7 @@ class Choice {
         this.choice[1]="No I want to play more";
         this.choice[2]="";
         this.choice[3]="";   
+        this.choice[4]="Exit Game";
         break;
         
         case ("DEAD"):
