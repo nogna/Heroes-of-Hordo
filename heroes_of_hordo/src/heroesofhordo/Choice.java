@@ -18,7 +18,6 @@ class Choice {
     }
     
     public Choice(String location) {
-    this.choice = new String[5];
     setChoices(location);
     }
 
