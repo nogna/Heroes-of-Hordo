@@ -24,8 +24,8 @@ class ChoiceRepository {
                 won();
                 break;
 
-            case ("DEAD"):
-                dead();
+            case ("LOST"):
+                lost();
                 break;
 
             case ("Sandtopia - Dark Alley"):
@@ -38,11 +38,11 @@ class ChoiceRepository {
 
     private String[] setChoicesSandtopia() {
         String[] choices = new String[5];
-        choices[0] = "Go inside";
-        choices[1] = "Knock";
-        choices[2] = "Yell at the door";
-        choices[3] = "Search inventory";
-        choices[4] = "Exit Game";
+        choices[0] = "1: Go inside";
+        choices[1] = "2: Knock";
+        choices[2] = "3: Yell at the door";
+        choices[3] = "4: Search inventory";
+        choices[4] = "5: Exit Game";
         return choices;
     }
 
@@ -50,17 +50,17 @@ class ChoiceRepository {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
 
-    private void dead() {
+    private void lost() {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
 
     private String[] setChoicesSandtopia_DarkAlley() {
         String[] choices = new String[5];
-        choices[0] = "Linger forward";
-        choices[1] = "Go back outside";
-        choices[2] = "Look around";
-        choices[3] = "Search inventory";
-        choices[4] = "Exit Game";
+        choices[0] = "1: Linger forward";
+        choices[1] = "2: Go back outside";
+        choices[2] = "3: Look around";
+        choices[3] = "4: Search inventory";
+        choices[4] = "5: Exit Game";
         return choices;
     }
 

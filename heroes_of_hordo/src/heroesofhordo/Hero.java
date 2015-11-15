@@ -13,8 +13,6 @@ import java.util.Scanner;
  */
 public class Hero {
 
-
-
     static boolean equalChoice(String[] result, String[] expResult) {
         for (int i = 0; i < result.length; i++) {
             if (result[i] != expResult[i]) {
@@ -25,9 +23,9 @@ public class Hero {
         return true;
     }
 
-    String name, location, action;
+    String name;
     Race race;
-    ChoiceRepository choices;
+
     Inventory inventory;
     // Gear gear; //Later feature
     Weapon righthand;
@@ -36,10 +34,8 @@ public class Hero {
 
     public Hero() {
         name = "";
-        location = "Sandtopia";
+
         inventory = new Inventory();
-        action = "";
-        choices = new ChoiceRepository();
         /*LATER FEATURE
         gear= new Gear();
     
@@ -80,17 +76,4 @@ public class Hero {
         return tmp_choices;
     
     }*/
-
-    public String getLocation() {
-        return location;
-    }
-
-    public String getAction() {
-        return action;
-    }
-
-    public ChoiceRepository getChoices() {
-        return choices;
-    }
-
 }

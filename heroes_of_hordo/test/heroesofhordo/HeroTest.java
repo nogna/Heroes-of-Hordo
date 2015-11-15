@@ -30,18 +30,7 @@ public class HeroTest {
     public static void tearDownClass() {
     }
 
-    /**
-     * Test of getAction method, of class Hero.
-     */
-    @Test
-    public void testGetAction() {
-        System.out.println("getAction");
-        Hero instance = new Hero();
-        String expResult = "";
-        String result = instance.getAction();
-        assertEquals(expResult, result);
 
-    }
 
     /**
      * Test of getLocation method, of class Hero.
