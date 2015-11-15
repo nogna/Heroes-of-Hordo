@@ -18,7 +18,7 @@ import org.junit.Before;
  * DONE
  * @author Nogna
  */
-public class ChoiceTest {
+public class ChoiceRespositoryTest {
     private final ByteArrayOutputStream outContent = new ByteArrayOutputStream();
     private final ByteArrayOutputStream errContent = new ByteArrayOutputStream();
 
@@ -33,7 +33,7 @@ public class ChoiceTest {
     System.setOut(null);
     System.setErr(null);
 }
-    public ChoiceTest() {
+    public ChoiceRespositoryTest() {
     }
     
     @BeforeClass
@@ -52,10 +52,11 @@ public class ChoiceTest {
     @Test
     public void testPrintChoices() {
         System.out.println("printChoices");
-        Choice instance = new Choice();
-        instance.printChoices();
-        
+        ChoiceRepository instance = new ChoiceRepository();
+        instance.printChoices("Sandtopia - Dark Alley");
+
     }
+
 
     /**
      * Test of getChoices method, of class Choice.
@@ -63,14 +64,16 @@ public class ChoiceTest {
     @Test
     public void testGetChoices() {
         System.out.println("getChoices");
-        Choice instance1 = new Choice();
-        Choice instance2 = new Choice("Sandtopia - Dark Alley");
+        ChoiceRepository instance = new ChoiceRepository();
+        
         String[] expResult1 = {"Go inside", "Knock", "Yell at the door", 
             "Search inventory", "Exit Game"};
-        String[] result1 = instance1.getChoices();
         String[] expResult2 = {"Linger forward", "Go back outside", 
             "Look around", "Search inventory", "Exit Game"};
-        String[] result2 = instance2.getChoices();
+        
+        String[] result1 = instance.getChoices("Sandtopia");
+        String[] result2 = instance.getChoices("Sandtopia - Dark Alley");
+        
         assertArrayEquals(expResult1, result1);
         assertArrayEquals(expResult2, result2);
         

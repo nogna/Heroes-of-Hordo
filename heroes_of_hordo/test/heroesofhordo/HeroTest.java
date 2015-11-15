@@ -14,17 +14,18 @@ import static org.junit.Assert.*;
 
 /**
  * DONE
+ *
  * @author Nogna
  */
 public class HeroTest {
-    
+
     public HeroTest() {
     }
-    
+
     @BeforeClass
     public static void setUpClass() {
     }
-    
+
     @AfterClass
     public static void tearDownClass() {
     }
@@ -39,14 +40,12 @@ public class HeroTest {
         String expResult = "";
         String result = instance.getAction();
         assertEquals(expResult, result);
-        
-        
+
     }
-    
+
     /**
      * Test of getLocation method, of class Hero.
-      */
-    
+     */
     @Test
     public void testGetLocation() {
         System.out.println("getLocation");
@@ -54,8 +53,7 @@ public class HeroTest {
         String expResult = "Sandtopia";
         String result = instance.getLocation();
         assertEquals(expResult, result);
-        
-        
+
     }
 
     /**
@@ -94,27 +92,25 @@ public class HeroTest {
         int i = 1;
         String race1 = "Opopilopop";
         String race2 = "Kraxlax";
-        
+
         Hero instance = new Hero();
         instance.setRace(i);
         assertEquals(instance.race.race_name, race1);
         assertFalse(instance.race.race_name.equals(race2));
-        
+
     }
 
     /**
-     * Test of setChoices method, of class Hero.
+     * Test of getChoices method, of class Hero.
      */
     @Test
-    public void testSetChoices() {
-        System.out.println("setChoices");
+    public void testGetChoices() {
+        System.out.println("getChoices");
+        ChoiceRepository test = new ChoiceRepository();
         Hero instance = new Hero();
         String[] expResult = {"Go inside", "Knock", "Yell at the door", "Search inventory", "Exit Game"};
-        instance.setChoices();
-        assertTrue(Hero.equalChoice(instance.choice, expResult));
-        }
-        
-        
-}
-   
+        String[] result = test.getChoices("Sandtopia");
+        assertTrue(Hero.equalChoice(result, expResult));
+    }
 
+}

@@ -33,16 +33,16 @@ public class HeroesOfHordo {
 
     private static String getPlayerAction(Player ActivePlayer) {
         int tmpAction;
-        String[] tmpChoices = ActivePlayer.hero.choice.getChoices();
-        ActivePlayer.hero.choice.printChoices();
-        System.out.println("Choose between 1-" + tmpChoices.length + ": ");
+        ChoiceRepository ActivePlayerChoices = ActivePlayer.getHero().getChoices();
+        ActivePlayer.hero.choices.printChoices();
+        System.out.println("Choose between 1-" + ActivePlayerChoices.length() + ": ");
         System.out.println("Pick a action: ");
         Scanner Sc = new Scanner(System.in);
         do {
-            CheckIfInt(Sc, tmpChoices);
+            CheckIfInt(Sc, ActivePlayerChoices);
             tmpAction = Sc.nextInt();
-        } while (validInt(tmpAction, tmpChoices));
-        return tmpChoices[tmpAction - 1];
+        } while (validInt(tmpAction, ActivePlayerChoices));
+        return ActivePlayerChoices.choices[tmpAction - 1];
     }
 
     private static String ActivePlayerAction(String Action) {
@@ -74,15 +74,15 @@ public class HeroesOfHordo {
         return true;
     }
 
-    private static void CheckIfInt(Scanner Input, String[] Choices) {
+    private static void CheckIfInt(Scanner Input, ChoiceRepository Choices) {
         while (!Input.hasNextInt()) {
-            System.out.print("Plz a number between 1-" + Choices.length + ": ");
+            System.out.print("Plz a number between 1-" + Choices.length() + ": ");
             Input.next();
         }
     }
 
-    private static boolean validInt(int Action, String[] Choices) {
-        return (Action <= 1 && Action >= Choices.length);
+    private static boolean validInt(int Action, ChoiceRepository Choices) {
+        return (Action <= 1 && Action >= Choices.length());
     }
 
 }

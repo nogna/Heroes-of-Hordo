@@ -5,6 +5,7 @@
  */
 package heroesofhordo;
 
+import static java.lang.System.in;
 import java.util.Scanner;
 
 /**
@@ -74,8 +75,10 @@ public class Game {
     players = CreatePlayers(how_many_players);
         for (int i = 0; i < how_many_players; i++) {
             players[i].hero.setName();
-            players[i].hero.setChoices();
-            players[i].hero.setRace();
+            players[i].hero.choices= new ChoiceRepository();
+            Scanner Sc = new Scanner(in);
+            int Race = Sc.nextInt();
+            players[i].hero.race = new Race(Race);
         }
     
     }

@@ -13,74 +13,75 @@ import java.util.Scanner;
  */
 public class Hero {
 
-    static boolean equalChoice(Choice A, String[] B) {
-        for (int i = 0; i < A.choices.length; i++) {
-            if (A.choices[i] != B[i]) {
-               return false; 
+
+
+    static boolean equalChoice(String[] result, String[] expResult) {
+        for (int i = 0; i < result.length; i++) {
+            if (result[i] != expResult[i]) {
+                return false;
             }
-            
-            
+
         }
         return true;
     }
-    
+
     String name, location, action;
     Race race;
-    Choice choice;
+    ChoiceRepository choices;
     Inventory inventory;
     // Gear gear; //Later feature
     Weapon righthand;
-    
-    private int number_races=2;
-    
-    public Hero(){
-        name="";
+
+    private int number_races = 2;
+
+    public Hero() {
+        name = "";
         location = "Sandtopia";
         inventory = new Inventory();
         action = "";
-        choice=new Choice();
+        choices = new ChoiceRepository();
         /*LATER FEATURE
         gear= new Gear();
     
-*/
+         */
     }
 
     public void setName() {
         Scanner Sc = new Scanner(System.in);
         System.out.print("Write your heros name: ");
         String tmpName = Sc.nextLine();
-        name = tmpName;  
+        name = tmpName;
     }
 
     public void setRace() {
         Scanner sc = new Scanner(System.in);
-        System.out.println("Pick race:");  
+        System.out.println("Pick race:");
         int tmp_race;
         do {
-        System.out.print("Choose between 1-" + number_races+": ");  
-        while (!sc.hasNextInt()) {
-            System.out.println("That's not a number!");
-            sc.next(); 
-        }
+            System.out.print("Choose between 1-" + number_races + ": ");
+            while (!sc.hasNextInt()) {
+                System.out.println("That's not a number!");
+                sc.next();
+            }
             tmp_race = sc.nextInt();
-    } while (tmp_race <= 0);
-       
-        race=new Race(tmp_race);
-        System.out.println("You chose: "+ race.race_name);
+        } while (tmp_race <= 0);
+
+        race = new Race(tmp_race);
+        System.out.println("You chose: " + race.race_name);
     }
-    
+
     public void setRace(int i) {
-     race=new Race(i);
+        race = new Race(i);
     }
 
-
+    /*
     public void setChoices() {
-            this.choice = new Choice(location);
+        String[] tmp_choices = new Choice(location);
+        return tmp_choices;
+    
+    }*/
 
-    
-    }
-    
-    public String getLocation(){
+    public String getLocation() {
         return location;
     }
 
@@ -88,10 +89,8 @@ public class Hero {
         return action;
     }
 
-    void getChoices() {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    public ChoiceRepository getChoices() {
+        return choices;
     }
 
-
-    
 }
