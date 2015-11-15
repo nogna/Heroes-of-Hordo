@@ -33,9 +33,9 @@ public class HeroesOfHordo {
 
     private static String getPlayerAction(Player ActivePlayer) {
         int tmpAction;
-        ChoiceRepository ActivePlayerChoices = ActivePlayer.getHero().getChoices();
-        ActivePlayer.hero.choices.printChoices();
-        System.out.println("Choose between 1-" + ActivePlayerChoices.length() + ": ");
+        ChoiceRepository ActivePlayerChoices = ActivePlayer.getHero().getChoices(); // ÄNDRA
+        ActivePlayer.hero.choices.printChoices(Location); //ÄNDRA
+        System.out.println("Choose between 1-" + ActivePlayerChoices.getChoices(Location).length + ": ");
         System.out.println("Pick a action: ");
         Scanner Sc = new Scanner(System.in);
         do {
