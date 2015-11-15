@@ -32,18 +32,6 @@ public class HeroTest {
 
 
 
-    /**
-     * Test of getLocation method, of class Hero.
-     */
-    @Test
-    public void testGetLocation() {
-        System.out.println("getLocation");
-        Hero instance = new Hero();
-        String expResult = "Sandtopia";
-        String result = instance.getLocation();
-        assertEquals(expResult, result);
-
-    }
 
     /**
      * Test of setName method, of class Hero.

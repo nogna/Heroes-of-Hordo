@@ -85,6 +85,11 @@ public class Game {
         players = CreatePlayers(i);
     }
 
+    Player getActivePlayer() {
+        return players[0];
+    }
+
+    
     private String[] CreateLocations() {
         String[] AllLocations = new String[6];
         AllLocations[0] = "Sandtopia";
@@ -95,10 +100,6 @@ public class Game {
         AllLocations[5] = "INVENTORY";
 
         return AllLocations;
-    }
-
-    Player getActivePlayer() {
-        return players[0];
     }
 
 }

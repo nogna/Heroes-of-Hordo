@@ -25,8 +25,7 @@ public class HeroesOfHordo {
             game.PrintPlayers();
             Player activePlayer = game.getActivePlayer();
             activePlayer.action = getPlayerAction(game, activePlayer);
-            ActivePlayerAction(activePlayer.action);
-            System.out.println(activePlayer.location, activePlayer);
+            ActivePlayerAction(activePlayer);
             game.turns(game.players);
             //Cont = askContinue();
         }
@@ -49,20 +48,30 @@ public class HeroesOfHordo {
         switch (ActivePlayer.action) {
             case "1: Go inside":
                 System.out.println("The doors makes a small noise when you open the door.");
-                ActivePlayer.location = "Sandtopia - Dark Alley";
+                if (ActivePlayer.location == "Sandtopia") {
+                    movePlayer(ActivePlayer, "Sandtopia - Dark Alley");
+                }
+
             case "2: Knock":
                 System.out.println("Knock...Knock...Knock");
                 break;
+
             case "3: Yell at the door":
                 System.out.println("No one seems to care.");
                 break;
+
             case "4: Search inventory":
-                return "INVENTORY";
+                movePlayer(ActivePlayer, "INVENTORY");
+
             case "5: Exit Game":
-                return "";
+                break;
+
+            case "1: Linger forward":
+                break;
+            case "2: Go back outside":
+                movePlayer(ActivePlayer, "Sandtopia");
 
         }
-        return "";
     }
 
     private static boolean askContinue() {
@@ -91,6 +100,10 @@ public class HeroesOfHordo {
         Arrays.asList(ActivePlayerChoices).stream().forEach(choices -> System.out.println(choices));
         System.out.println("Choose between 1-" + ActivePlayerChoices.length);
         System.out.println("Pick a action: ");
+    }
+
+    private static void movePlayer(Player ActivePlayer, String Location) {
+        ActivePlayer.location = Location;
     }
 
 }

@@ -25,7 +25,6 @@ public class Hero {
 
     String name;
     Race race;
-
     Inventory inventory;
     // Gear gear; //Later feature
     Weapon righthand;
