@@ -81,7 +81,7 @@ public class HeroesOfHordo {
                 break;
             case "3: Search inventory":
                 movePlayer(ActivePlayer, "INVENTORY");
-                selectItem(ActivePlayer); //If no item want to be selected FIX
+                //selectItem(ActivePlayer); //If no item want to be selected FIX
             case "4: Exit Game":
                 //askContinue();
                 break;
@@ -99,7 +99,6 @@ public class HeroesOfHordo {
             //Deep in Market 
             case "1: Try steal the item":
                 System.out.println("SHOOOOOPLIFTER!!! yells the shop owner");
-                System.out.println("You quickly try to flee");
                 if (tryAction(ActivePlayer.hero.luck)) {
                     System.out.println("You quickly find your way out of the market and jumps into at hay stack");
                     System.out.println("Without anyone noticing you");
@@ -110,6 +109,7 @@ public class HeroesOfHordo {
                     System.out.println("You're caught...");
                     movePlayer(ActivePlayer, "Jail");
                 }
+                break;
             case "2: Ask for the way":
                 System.out.println("The shop owner simple just sigh at you");
                 break;
@@ -130,16 +130,21 @@ public class HeroesOfHordo {
                 System.out.println("But before you know it, a guard come and release you.");
                 movePlayer(ActivePlayer, "Main Street");
                 ActivePlayer.hero.jail = 1;
+                break;
             //MAIN STREET
             case "1: Take the shortcut":
                 System.out.println("You know that you can reach the house quicker if you go in the dungeons below the city.");
                 System.out.println("But the dungeon is filled with tunnels but how hard could it be finding the way?");
                 movePlayer(ActivePlayer, "Shortcut - Underground");
+                break;
             case "2: Continue on the slow path":
                 System.out.println("You slowly moving forward");
                 movePlayer(ActivePlayer, "Side Street");
-            case "3: Go inside the Bar":
+                break;
+            case "3: Go inside the bar":
+                System.out.println("You open the bar door, and smell beer.");
                 movePlayer(ActivePlayer, "Bar");
+                break;
             //BAR
             case "1: Bet on Scorpion":
                 if (tryAction(ActivePlayer.hero.luck)) {

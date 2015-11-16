@@ -34,20 +34,28 @@ class ChoiceRepository {
 
             case ("Deep in Market"):
                 return setChoicesDeepInMarket();
+                
             case ("Hay Stack"):
                 return setChoicesHayStack();
+                
             case ("Jail"):
                 return setChoicesJail();
+                
             case ("Main Street"):
                 return setChoicesMainStreet();
+                
             case ("Bar"):
                 return setChoicesBar();
+                
             case ("Shortcut - Underground"):
                 return setChoicesShortcut_Underground();
+                
             case ("Side Street"):
                 return setChoicesSideStreet();
+                
             case ("Outside Tower"):
                 return setChoicesOutsideTower();
+                
             case ("Side Street 2"):
                 return setChoicesSideStreet2();
 
