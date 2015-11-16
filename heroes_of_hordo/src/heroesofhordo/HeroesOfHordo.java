@@ -6,6 +6,7 @@
 package heroesofhordo;
 
 import java.util.Arrays;
+import java.util.Random;
 import java.util.Scanner;
 
 /**
@@ -26,7 +27,7 @@ public class HeroesOfHordo {
             Player activePlayer = game.getActivePlayer();
             System.out.println("Player " + (activePlayer.player_number + 1) + " you are located: " + activePlayer.location);
             activePlayer.action = getPlayerAction(game, activePlayer);
-            ActivePlayerAction(activePlayer, game);
+            ActivePlayerAction(activePlayer);
             game.turns(game.players);
             //Cont = askContinue();
         }
@@ -45,7 +46,7 @@ public class HeroesOfHordo {
         return ActivePlayerChoices[tmpAction - 1];
     }
 
-    private static void ActivePlayerAction(Player ActivePlayer, Game game) {
+    private static void ActivePlayerAction(Player ActivePlayer) {
         switch (ActivePlayer.action) {
             //Sandtopia entrance LOCATION
             case "1: Go inside":
@@ -91,8 +92,72 @@ public class HeroesOfHordo {
                 break;
             case "2: Drop your only coin in good luck fountain":
                 System.out.println("You here a small splash when your coin hits the water");
+                ActivePlayer.hero.luck = 20;
                 ActivePlayer.hero.inventory.items = ActivePlayer.hero.inventory.deleteItemInventory("Small gold coin");
+            case "3: Exit Game":
+                break;
+            //Deep in Market 
+            case "1: Try steal the item":
+                System.out.println("SHOOOOOPLIFTER!!! yells the shop owner");
+                System.out.println("You quickly try to flee");
+                if (tryAction(ActivePlayer.hero.luck)) {
+                    System.out.println("You quickly find your way out of the market and jumps into at hay stack");
+                    System.out.println("Without anyone noticing you");
+                    ActivePlayer.hero.inventory.addItemInventory(new Item("Hookah"));
+                    movePlayer(ActivePlayer, "Hay Stack");
+                } else {
+                    System.out.println("You quickly turn around and is about to run when you feel a giant hand on your shoulder");
+                    System.out.println("You're caught...");
+                    movePlayer(ActivePlayer, "Jail");
+                }
+            case "2: Ask for the way":
+                System.out.println("The shop owner simple just sigh at you");
+                break;
+            //Hay Stack
+            case "1: Wait in the Hay Stack":
+                System.out.println("You wait for everything to calm down...");
+                System.out.println("It seems like forever but when everthing "
+                        + "start to settle you silently sneak out to the Main Street.");
+                movePlayer(ActivePlayer, "Main Street");
+                break;
+            case "2: Exit game":
+                break;
+            // JAIL
+            case "1: Wait in the jail cell":
+                System.out.println("Hours and hours pass...");
+                System.out.println("Not to get bored out of your mind, you find some enjoyment");
+                System.out.println(" from watching the guards stroll around the dungeon.");
+                System.out.println("But before you know it, a guard come and release you.");
+                movePlayer(ActivePlayer, "Main Street");
+                ActivePlayer.hero.jail = 1;
+            //MAIN STREET
+            case "1: Take the shortcut":
+                System.out.println("You know that you can reach the house quicker if you go in the dungeons below the city.");
+                System.out.println("But the dungeon is filled with tunnels but how hard could it be finding the way?");
+                movePlayer(ActivePlayer, "Shortcut - Underground");
+            case "2: Continue on the slow path":
+                System.out.println("You slowly moving forward");
+                movePlayer(ActivePlayer, "Side Street");
+            case "3: Go inside the Bar":
+                movePlayer(ActivePlayer, "Bar");
+            //BAR
+            case "1: Bet on Scorpion":
+                if (tryAction(ActivePlayer.hero.luck)) {
+                    System.out.println("Giant Pincer is the winner");
+                    System.out.println("Yey Scorpion");
+                    Item BigSackofCoins = new Item("Big sack of coins");
+                    ActivePlayer.hero.inventory.addItemInventory(BigSackofCoins);
+                }
+
+                break;
+            case "2: Bet on Snake":
+                System.out.println("Giant Snake is the winner");
+                System.out.println("Yey Snake");
+                Item BigSackofCoins = new Item("Big sack of coins");
+                ActivePlayer.hero.inventory.addItemInventory(BigSackofCoins);
+                break;
         }
+
     }
 
     private static boolean askContinue() {
@@ -127,6 +192,9 @@ public class HeroesOfHordo {
         ActivePlayer.location = Location;
     }
 
+    /* 
+    Unnessesery prob selectItem function, LATER FETURE
+     */
     private static void selectItem(Player ActivePlayer) {
         int ItemIndex = getPlayerInt(ActivePlayer.hero.inventory.getTotalNumberItems());
         ActivePlayer.hero.inventory.printInventory();
@@ -135,14 +203,56 @@ public class HeroesOfHordo {
 
     }
 
-    private static int getPlayerInt(int length) {
+    private static int getPlayerInt(int Length) {
         Scanner Sc = new Scanner(System.in);
         int tmpInt;
         do {
-            CheckIfInt(Sc, length);
+            CheckIfInt(Sc, Length);
             tmpInt = Sc.nextInt();
-        } while (validInt(tmpInt, length));
+        } while (validInt(tmpInt, Length));
         return tmpInt;
     }
 
+    private static boolean tryAction(int Luck) {
+        Random rand = new Random();
+        int chance = (rand.nextInt(50) + 1) + Luck;
+        if (chance >= 50) {
+            return true;
+        }
+        return false;
+    }
+
+    private static boolean tryAction(int Luck, int Jail) {
+        int Chance;
+        Random rand = new Random();
+        if (Jail == 1) {
+            Chance = (rand.nextInt(80) + 1) + Luck;
+            if (Chance >= 50) {
+                return true;
+            }
+            return false;
+        } else {
+
+            Chance = (rand.nextInt(50) + 1) + Luck;
+            if (Chance >= 50) {
+                return true;
+            }
+            return false;
+        }
+
+    }
 }
+/*
+SHORTCUT UNDERGROUND
+if (tryAction(ActivePlayer.hero.luck, ActivePlayer.hero.jail)) {
+                    System.out.println("All that time in the jail cell payed off!");
+                    System.out.println("You managed to sneak around in the dungeon and ended up outside the tower");
+                    movePlayer(ActivePlayer, "Outside Tower");
+                }
+                else{
+                    System.out.println("Hey you there!");
+                    System.out.println("You freeze, knowing you shouldn't be down here");
+                    System.out.println("You get escorted by the guard that found you to a side street");
+                    movePlayer(ActivePlayer, "Side Street");
+                }
+ */

@@ -28,13 +28,16 @@ public class Hero {
     Inventory inventory;
     // Gear gear; //Later feature
     Item righthand;
+    int jail;
 
     private int number_races = 2;
+    int luck;
 
     public Hero() {
         name = "";
+        luck = 0;
+        jail = 0;
         inventory = new Inventory();
-        
         /*LATER FEATURE
         gear= new Gear();
          */

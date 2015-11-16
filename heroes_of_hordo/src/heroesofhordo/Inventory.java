@@ -49,7 +49,7 @@ class Inventory {
     }
 
     public Item[] deleteItemInventory(String removeItem) {
-        Item[] updatedInventory = new Item[(items.length-1)];
+        Item[] updatedInventory = new Item[(items.length - 1)];
         for (int i = 0; i < items.length; i++) {
             if (!(items[i].item_name == removeItem)) {
                 updatedInventory[i] = items[i];

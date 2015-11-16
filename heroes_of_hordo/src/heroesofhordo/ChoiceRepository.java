@@ -74,26 +74,26 @@ class ChoiceRepository {
 
     private String[] setChoicesDeepInMarket() {
         String[] choices = new String[3];
-        choices[0] = "1: Steal the item";
-        choices[1] = "2: Keep trying to find the way";
+        choices[0] = "1: Try steal the item";
+        choices[1] = "2: Ask for the way";
         choices[2] = "3: Exit Game";
         return choices;
     }
     private String[] setChoicesHayStack() {
         String[] choices = new String[2];
-        choices[0] = "1: Sleep in the Hay Stack";
+        choices[0] = "1: Wait in the Hay Stack";
         choices[1] = "2: Exit Game";
         return choices;
     }
     private String[] setChoicesJail() {
         String[] choices = new String[2];
-        choices[0] = "1: Sleep in the jail cell";
+        choices[0] = "1: Wait in the jail cell";
         choices[1] = "2: Exit Game";
         return choices;
     }
     private String[] setChoicesMainStreet() {
         String[] choices = new String[4];
-        choices[0] = "1: Look for a shortcut";
+        choices[0] = "1: Take the shortcut";
         choices[1] = "2: Continue on the slow path";
         choices[2] = "3: Go inside the bar";
         choices[3] = "4: Exit Game";
@@ -126,6 +126,12 @@ class ChoiceRepository {
         choices[1] = "2: Threaten with tiny knife";
         choices[2] = "3: Try to fool the guards";
         choices[3] = "4: Exit Game";
+        return choices;
+    }
+    private String[] setChoicesSideStreet2() {
+        String[] choices = new String[2];
+        choices[0] = "1: Continue forward";
+        choices[1] = "2: Exit Game";
         return choices;
     }
 

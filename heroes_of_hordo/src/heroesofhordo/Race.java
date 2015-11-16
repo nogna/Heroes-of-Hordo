@@ -11,45 +11,41 @@ package heroesofhordo;
  */
 class Race {
 
-    static boolean equalRace(Race a, Race b) {
-        if (a.race_name==b.race_name) {
+    static boolean equalRace(Race A, Race B) {
+        if (A.race_name == B.race_name) {
             return true;
         }
         return false;
     }
 
-    static boolean equalStats(Race a, Race b) {
-        if (a.agility==b.agility && a.luck == b.luck && a.strength == b.strength && a.wisdom == b.wisdom){
+    static boolean equalStats(Race A, Race B) {
+        if (A.agility == B.agility && A.strength == B.strength && A.wisdom == B.wisdom) {
             return true;
         }
         return false;
     }
 
-    
     String race_name;
-    int strength, wisdom, agility, luck;
-    
-    public Race(int race){
-        this.race_name=setRace(race);
+    int strength, wisdom, agility;
+
+    public Race(int Race) {
+        this.race_name = setRace(Race);
     }
 
     private String setRace(int race) {
-        switch (race){
-        case 1:
-            this.strength=50;
-            this.wisdom = 30;
-            this.agility = 70;
-            this.luck = 20;
-            return "Opopilopop";
-        case 2:
-            this.strength=30;
-            this.wisdom = 50;
-            this.agility = 70;
-            this.luck = 20;
-            return "Kraxlax";
+        switch (race) {
+            case 1:
+                this.strength = 50;
+                this.wisdom = 30;
+                this.agility = 70;
+                return "Opopilopop";
+            case 2:
+                this.strength = 30;
+                this.wisdom = 50;
+                this.agility = 70;
+                return "Kraxlax";
 
         }
         return "";
     }
 }
-
