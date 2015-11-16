@@ -69,6 +69,7 @@ public class HeroesOfHordo {
                 break;
 
             case "1: Linger forward":
+                movePlayer(ActivePlayer, "Market Place");
                 break;
             case "2: Go back outside":
                 movePlayer(ActivePlayer, "Sandtopia");

@@ -55,7 +55,7 @@ public class InventoryTest {
         System.out.println("updateInventory");
         Item new_item = new Item("Spoon");
         Inventory instance = new Inventory();
-        String[] expResult = {"Knife", "Spoon"};
+        String[] expResult = {"Tiny knife", "Spoon"};
         instance.updateInventory(new_item);
         assertTrue(Inventory.equal(instance, expResult, instance.getTotalNumberItems()));
 
@@ -93,7 +93,7 @@ public class InventoryTest {
     public void testEqual() {
         System.out.println("equal");
         Inventory result_2 = new Inventory();
-        String[] b = {"Knife"};
+        String[] b = {"Tiny knife"};
         int j = 1;
         boolean expResult = true;
         boolean result = Inventory.equal(result_2, b, j);

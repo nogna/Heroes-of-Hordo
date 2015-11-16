@@ -92,14 +92,23 @@ public class Game {
 
     
     private String[] CreateLocations() {
-        String[] AllLocations = new String[6];
+        String[] AllLocations = new String[14];
         AllLocations[0] = "Sandtopia";
         AllLocations[1] = "Sandtopia - Dark Alley";
         AllLocations[2] = "WIN";
         AllLocations[3] = "LOST";
-        AllLocations[4] = "DEAD";
+        AllLocations[4] = "Market Place";
         AllLocations[5] = "INVENTORY";
+        AllLocations[6] = "Deep in Market";// possible not used
+        AllLocations[7] = "Hay Stack";
+        AllLocations[8] = "Jail";
+        AllLocations[9] = "Main Street";
+        AllLocations[10] = "Bar";
+        AllLocations[11] = "Shortcut - Underground";
+        AllLocations[12] = "Side Street";
+        AllLocations[13] = "Outside Tower";
 
+        
         return AllLocations;
     }
 

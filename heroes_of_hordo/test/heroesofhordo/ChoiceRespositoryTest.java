@@ -71,7 +71,7 @@ public class ChoiceRespositoryTest {
         String[] expResult2 = {"1: Linger forward", "2: Go back outside", 
             "3: Look around", "4: Search inventory", "5: Exit Game"};
         
-        String[] result1 = instance.getChoices("Sandtopia");
+        String[] result1 = instance.getChoices("Sandtopia entrance");
         String[] result2 = instance.getChoices("Sandtopia - Dark Alley");
         
         assertArrayEquals(expResult1, result1);
