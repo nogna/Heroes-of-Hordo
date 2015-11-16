@@ -79,7 +79,15 @@ class Inventory {
 
     Item getItem(int ItemIndex) {
         return items[ItemIndex];
-
+    }
+    
+    boolean findItem(String ItemName){
+        for (int i = 0; i < items.length; i++) {
+            if (items[i].item_name== ItemName) {
+                return true;
+            }
+        }
+        return false;
     }
 
 }

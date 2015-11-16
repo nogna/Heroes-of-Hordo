@@ -92,7 +92,7 @@ public class HeroesOfHordo {
                 break;
             case "2: Drop your only coin in good luck fountain":
                 System.out.println("You here a small splash when your coin hits the water");
-                ActivePlayer.hero.luck = 20;
+                ActivePlayer.hero.luck += 20;
                 ActivePlayer.hero.inventory.items = ActivePlayer.hero.inventory.deleteItemInventory("Small gold coin");
             case "3: Exit Game":
                 break;
@@ -147,15 +147,97 @@ public class HeroesOfHordo {
                     System.out.println("Yey Scorpion");
                     Item BigSackofCoins = new Item("Big sack of coins");
                     ActivePlayer.hero.inventory.addItemInventory(BigSackofCoins);
+                } else {
+                    System.out.println("With no money to actually bet you get thrown out on Side Street 2");
+                    movePlayer(ActivePlayer, "Side Street 2");
                 }
-
                 break;
             case "2: Bet on Snake":
-                System.out.println("Giant Snake is the winner");
-                System.out.println("Yey Snake");
-                Item BigSackofCoins = new Item("Big sack of coins");
-                ActivePlayer.hero.inventory.addItemInventory(BigSackofCoins);
+                if (tryAction(ActivePlayer.hero.luck)) {
+                    System.out.println("Giant Snake is the winner");
+                    System.out.println("Yey Snake");
+                    Item BigSackofCoins = new Item("Big sack of coins");
+                    ActivePlayer.hero.inventory.addItemInventory(BigSackofCoins);
+                } else {
+                    movePlayer(ActivePlayer, "Side Street 2");
+                    System.out.println("With no money to actually bet you get thrown out on Side Street 2");
+                }
                 break;
+        //Shortcut - Underground
+            case "1: Carefully move forward":
+                
+                if (tryAction(ActivePlayer.hero.luck, ActivePlayer.hero.jail)) {
+                    System.out.println("All that time in the jail cell payed off!");
+                    System.out.println("You managed to sneak around in the dungeon and ended up outside the tower");
+                    movePlayer(ActivePlayer, "Outside Tower");
+                }
+                else{
+                    System.out.println("Hey you there!");
+                    System.out.println("You freeze, knowing you shouldn't be down here");
+                    System.out.println("You get escorted by the guard that found you to a side street");
+                    movePlayer(ActivePlayer, "Side Street");
+                }
+                break;
+            case "2: Pick up the pace":
+                if (tryAction((ActivePlayer.hero.luck-10), ActivePlayer.hero.jail)) {
+                    System.out.println("All that time in the jail cell payed off!");
+                    System.out.println("You managed to sneak around in the dungeon and ended up outside the tower");
+                    movePlayer(ActivePlayer, "Outside Tower");
+                }
+                else{
+                    System.out.println("Hey you there!");
+                    System.out.println("You freeze, knowing you shouldn't be down here");
+                    System.out.println("You get escorted by the guard that found you to a side street");
+                    movePlayer(ActivePlayer, "Side Street");
+                }
+                break;
+                
+                //Side Street
+            case "1: Ahh, I know the way from here":
+                System.out.println("You continue forward...");
+                movePlayer(ActivePlayer, "Side Street 2");
+                break;
+                
+            case "2: Ask for the directions":
+                System.out.println("No one is around...");
+                break;
+                
+               // Outside Tower
+            case "1: Bribe":
+                if (ActivePlayer.hero.inventory.findItem("Big sack of coins")) {
+                    System.out.println("The guards lets you pass with a smile on their faces.");
+                    movePlayer(ActivePlayer, "WIN");
+                    
+                }else{
+                    System.out.println("Ehh, I don't have any money.");
+                    System.out.println("The guards throw you back on to Side Street 2");
+                    movePlayer(ActivePlayer, "Side Street 2");
+                }
+                break;
+                
+            case "2: Threaten with tiny knife":
+                if (tryAction(ActivePlayer.hero.race.strength)) {
+                    movePlayer(ActivePlayer, "WIN");
+                }else{
+                    System.out.println("The guards throw you back on to Side Street 2");
+                    movePlayer(ActivePlayer, "Side Street 2");
+                }
+                break;
+            case "3: Try to fool the guards":
+                if (tryAction(ActivePlayer.hero.race.wisdom)) {
+                    movePlayer(ActivePlayer, "WIN");
+                }else{
+                    System.out.println("The guards throw you back on to Side Street 2");
+                    movePlayer(ActivePlayer, "Side Street 2");
+                }
+                break;
+                
+            case "1: Continue forward":
+                System.out.println("You continue forward...");
+                movePlayer(ActivePlayer, "Outside Tower");
+                break;
+            
+                
         }
 
     }
@@ -213,9 +295,9 @@ public class HeroesOfHordo {
         return tmpInt;
     }
 
-    private static boolean tryAction(int Luck) {
+    private static boolean tryAction(int Stats) {
         Random rand = new Random();
-        int chance = (rand.nextInt(50) + 1) + Luck;
+        int chance = (rand.nextInt(50) + 1) + Stats;
         if (chance >= 50) {
             return true;
         }
@@ -242,17 +324,3 @@ public class HeroesOfHordo {
 
     }
 }
-/*
-SHORTCUT UNDERGROUND
-if (tryAction(ActivePlayer.hero.luck, ActivePlayer.hero.jail)) {
-                    System.out.println("All that time in the jail cell payed off!");
-                    System.out.println("You managed to sneak around in the dungeon and ended up outside the tower");
-                    movePlayer(ActivePlayer, "Outside Tower");
-                }
-                else{
-                    System.out.println("Hey you there!");
-                    System.out.println("You freeze, knowing you shouldn't be down here");
-                    System.out.println("You get escorted by the guard that found you to a side street");
-                    movePlayer(ActivePlayer, "Side Street");
-                }
- */

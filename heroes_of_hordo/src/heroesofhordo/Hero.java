@@ -35,7 +35,7 @@ public class Hero {
 
     public Hero() {
         name = "";
-        luck = 0;
+        luck = 10;
         jail = 0;
         inventory = new Inventory();
         /*LATER FEATURE

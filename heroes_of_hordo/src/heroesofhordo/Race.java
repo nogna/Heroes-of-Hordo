@@ -35,14 +35,14 @@ class Race {
     private String setRace(int race) {
         switch (race) {
             case 1:
-                this.strength = 50;
-                this.wisdom = 30;
-                this.agility = 70;
+                this.strength = 30;
+                this.wisdom = 10;
+                this.agility = 10;
                 return "Opopilopop";
             case 2:
-                this.strength = 30;
-                this.wisdom = 50;
-                this.agility = 70;
+                this.strength = 10;
+                this.wisdom = 30;
+                this.agility = 10;
                 return "Kraxlax";
 
         }
