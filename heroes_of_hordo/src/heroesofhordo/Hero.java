@@ -41,6 +41,7 @@ public class Hero {
         /*LATER FEATURE
         gear= new Gear();
          */
+        setRace(1);
     }
 
     public void setName() {
