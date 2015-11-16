@@ -24,6 +24,7 @@ public class HeroesOfHordo {
         while (Cont) {
             game.PrintPlayers();
             Player activePlayer = game.getActivePlayer();
+            System.out.println("Player "+ (activePlayer.player_number+1) +" you are located: "+ activePlayer.location);
             activePlayer.action = getPlayerAction(game, activePlayer);
             ActivePlayerAction(activePlayer);
             game.turns(game.players);
@@ -37,9 +38,9 @@ public class HeroesOfHordo {
         printActivePlayerChoices(ActivePlayerChoices);
         Scanner Sc = new Scanner(System.in);
         do {
-            CheckIfInt(Sc, ActivePlayerChoices);
+            CheckIfInt(Sc, ActivePlayerChoices.length);
             tmpAction = Sc.nextInt();
-        } while (validInt(tmpAction, ActivePlayerChoices));
+        } while (validInt(tmpAction, ActivePlayerChoices.length));
         System.out.println(ActivePlayerChoices[tmpAction - 1]);
         return ActivePlayerChoices[tmpAction - 1];
     }
@@ -86,21 +87,15 @@ public class HeroesOfHordo {
         return true;
     }
 
-    private static void CheckIfInt(Scanner Input, String[] Choices) {
+    private static void CheckIfInt(Scanner Input, int length) {
         while (!Input.hasNextInt()) {
-            System.out.print("Plz a number between 1-" + Choices.length + ": ");
-            Input.next();
-        }
-    }
-    private static void CheckIfInt(Scanner Input, Player ActivePlayer) {
-        while (!Input.hasNextInt()) {
-            System.out.println("Plz a number between"+ ActivePlayer.hero.inventory.getTotalNumberItems()+": ");
+            System.out.println("Plz a number between" + length + ": ");
             Input.next();
         }
     }
 
-    private static boolean validInt(int Action, String[] Choices) {
-        return (Action <= 1 && Action >= Choices.length);
+    private static boolean validInt(int Action, int length) {
+        return (Action <= 1 && Action >= length);
     }
 
     private static void printActivePlayerChoices(String[] ActivePlayerChoices) {
@@ -114,17 +109,20 @@ public class HeroesOfHordo {
     }
 
     private static void selectItem(Player ActivePlayer) {
-        int ItemNumber = getPlayerInt();
+        int ItemIndex = getPlayerInt(ActivePlayer.hero.inventory.getTotalNumberItems());
         ActivePlayer.hero.inventory.printInventory();
-        getPlayerInt();
-        Item activeItem = ActivePlayer.hero.inventory.useItem(ItemNumber);
+        Item activeItem = ActivePlayer.hero.inventory.getItem(ItemIndex);
+        ActivePlayer.hero.righthand = activeItem;
 
     }
 
-    private static int getPlayerInt() {
+    private static int getPlayerInt(int length) {
         Scanner Sc = new Scanner(System.in);
-        CheckIfInt(Sc, ActivePlayer);
-        int tmpInt = Sc.nextInt();
+        int tmpInt;
+        do {
+            CheckIfInt(Sc, length);
+            tmpInt = Sc.nextInt();
+        } while (validInt(tmpInt, length));
         return tmpInt;
     }
 

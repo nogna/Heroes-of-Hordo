@@ -63,6 +63,7 @@ public class Game {
     }
 
     public void PrintPlayers() {
+        System.out.println("All players:");
         for (int i = 0; i < Player.total_player_number; i++) {
             System.out.println("Player: " + (players[i].getPlayer() + 1));
         }

@@ -27,7 +27,7 @@ public class Hero {
     Race race;
     Inventory inventory;
     // Gear gear; //Later feature
-    Weapon righthand;
+    Item righthand;
 
     private int number_races = 2;
 

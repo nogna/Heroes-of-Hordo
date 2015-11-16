@@ -12,38 +12,32 @@ package heroesofhordo;
 class Item {
 
     static boolean equal(Item a, Item b) {
-    if (a.item_name ==b.item_name && a.item_level == b.item_level){
-        return true;
-    }else{
-        return false;
+        if (a.item_name == b.item_name && a.item_level == b.item_level) {
+            return true;
+        } else {
+            return false;
+        }
     }
-    }
+
     static boolean equal(Item a, String b) {
-    if (a.item_name ==b){
-        return true;
-    }else{
-        return false;
+        if (a.item_name == b) {
+            return true;
+        } else {
+            return false;
+        }
     }
-    }
-
-
-
-    
-        
-    
 
     String item_name;
     int item_level;
-    
 
     Item(String component) {
-       this.item_name = component;
-       this.item_level = 1;
-    }
-    Item(String component, int i) {
-       this.item_name = component;
-       this.item_level = i;
+        this.item_name = component;
+        this.item_level = 1;
     }
 
-    
+    Item(String component, int i) {
+        this.item_name = component;
+        this.item_level = i;
+    }
+
 }

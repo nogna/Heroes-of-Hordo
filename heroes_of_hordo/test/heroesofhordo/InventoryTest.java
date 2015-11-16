@@ -16,30 +16,33 @@ import org.junit.Before;
 
 /**
  * TODO
+ *
  * @author Nogna
  */
 public class InventoryTest {
+
     private final ByteArrayOutputStream outContent = new ByteArrayOutputStream();
     private final ByteArrayOutputStream errContent = new ByteArrayOutputStream();
-    
+
     public InventoryTest() {
     }
+
     @Before
     public void setUpStreams() {
-    System.setOut(new PrintStream(outContent));
-    System.setErr(new PrintStream(errContent));
+        System.setOut(new PrintStream(outContent));
+        System.setErr(new PrintStream(errContent));
     }
 
     @After
     public void cleanUpStreams() {
-    System.setOut(null);
-    System.setErr(null);
-}
-    
+        System.setOut(null);
+        System.setErr(null);
+    }
+
     @BeforeClass
     public static void setUpClass() {
     }
-    
+
     @AfterClass
     public static void tearDownClass() {
     }
@@ -55,7 +58,7 @@ public class InventoryTest {
         String[] expResult = {"Knife", "Spoon"};
         instance.updateInventory(new_item);
         assertTrue(Inventory.equal(instance, expResult, instance.getTotalNumberItems()));
-        
+
     }
 
     /**
@@ -68,9 +71,8 @@ public class InventoryTest {
         instance.updateInventory(new Item("Spoon"));
         instance.printInventory();
         //assertEquals("printInventory Inventory: 1: Knife ", outContent.toString());
-        
-    }
 
+    }
 
     /**
      * Test of getTotalNumberItems method, of class Inventory.
@@ -98,5 +100,22 @@ public class InventoryTest {
         assertEquals(expResult, result);
 
     }
-    
+
+    /**
+     * Test of getItem method, of class Inventory.
+     */
+    @Test
+    public void testGetItem() {
+        System.out.println("getItem");
+        int ItemIndex = 1;
+        Inventory instance = new Inventory();
+        Item expResult1 = new Item("Knife");
+        Item expResult2 = new Item("Spoon");
+        instance.updateInventory(expResult1);
+        instance.updateInventory(expResult2);
+        Item result = instance.getItem(ItemIndex);
+        assertTrue(expResult1.equals(result));
+        assertFalse(expResult2.equals(result));
+    }
+
 }
