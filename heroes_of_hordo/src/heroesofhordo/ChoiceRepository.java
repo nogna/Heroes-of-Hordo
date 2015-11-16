@@ -28,6 +28,9 @@ class ChoiceRepository {
 
             case ("Sandtopia - Dark Alley"):
                 return setChoicesSandtopia_DarkAlley();
+                
+            case ("Market Place"):
+                return setChoicesMarketPlace();
 
         }
         String[] x = new String[0];
@@ -53,12 +56,11 @@ class ChoiceRepository {
     }
 
     private String[] setChoicesSandtopia_DarkAlley() {
-        String[] choices = new String[5];
+        String[] choices = new String[4];
         choices[0] = "1: Linger forward";
-        choices[1] = "2: Go back outside";
-        choices[2] = "3: Look around";
-        choices[3] = "4: Search inventory";
-        choices[4] = "5: Exit Game";
+        choices[1] = "2: Look around";
+        choices[2] = "3: Search inventory";
+        choices[3] = "4: Exit Game";
         return choices;
     }
 

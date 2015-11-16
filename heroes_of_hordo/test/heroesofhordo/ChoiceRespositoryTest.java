@@ -68,8 +68,8 @@ public class ChoiceRespositoryTest {
         
         String[] expResult1 = {"1: Go inside", "2: Knock", "3: Yell at the door", 
             "4: Search inventory", "5: Exit Game"};
-        String[] expResult2 = {"1: Linger forward", "2: Go back outside", 
-            "3: Look around", "4: Search inventory", "5: Exit Game"};
+        String[] expResult2 = {"1: Linger forward", 
+            "2: Look around", "3: Search inventory", "4: Exit Game"};
         
         String[] result1 = instance.getChoices("Sandtopia entrance");
         String[] result2 = instance.getChoices("Sandtopia - Dark Alley");

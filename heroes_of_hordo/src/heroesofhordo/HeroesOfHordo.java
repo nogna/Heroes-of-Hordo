@@ -24,9 +24,9 @@ public class HeroesOfHordo {
         while (Cont) {
             game.PrintPlayers();
             Player activePlayer = game.getActivePlayer();
-            System.out.println("Player "+ (activePlayer.player_number+1) +" you are located: "+ activePlayer.location);
+            System.out.println("Player " + (activePlayer.player_number + 1) + " you are located: " + activePlayer.location);
             activePlayer.action = getPlayerAction(game, activePlayer);
-            ActivePlayerAction(activePlayer);
+            ActivePlayerAction(activePlayer, game);
             game.turns(game.players);
             //Cont = askContinue();
         }
@@ -45,11 +45,12 @@ public class HeroesOfHordo {
         return ActivePlayerChoices[tmpAction - 1];
     }
 
-    private static void ActivePlayerAction(Player ActivePlayer) {
+    private static void ActivePlayerAction(Player ActivePlayer, Game game) {
         switch (ActivePlayer.action) {
+            //Sandtopia entrance LOCATION
             case "1: Go inside":
                 System.out.println("The doors makes a small noise when you open the door.");
-                if (ActivePlayer.location == "Sandtopia") {
+                if (ActivePlayer.location == "Sandtopia entrance") {
                     movePlayer(ActivePlayer, "Sandtopia - Dark Alley");
                 }
 
@@ -63,17 +64,34 @@ public class HeroesOfHordo {
 
             case "4: Search inventory":
                 movePlayer(ActivePlayer, "INVENTORY");
-                selectItem(ActivePlayer);
+                //If no item want to be selected FIX
                 break;
             case "5: Exit Game":
+                //askContinue();
                 break;
-
+            //Sandtopia - Dark Alley LOCATION
             case "1: Linger forward":
                 movePlayer(ActivePlayer, "Market Place");
                 break;
-            case "2: Go back outside":
-                movePlayer(ActivePlayer, "Sandtopia");
+            case "2: Look around":
+                System.out.println("You find a small gold coin");
+                Item SmallGoldCoin = new Item("Small gold coin");
+                ActivePlayer.hero.inventory.addItemInventory(SmallGoldCoin);
                 break;
+            case "3: Search inventory":
+                movePlayer(ActivePlayer, "INVENTORY");
+                selectItem(ActivePlayer); //If no item want to be selected FIX
+            case "4: Exit Game":
+                //askContinue();
+                break;
+            //Market Place
+            case "1: Stroll around":
+                System.out.println("You stroll deeper and deeper into the market...");
+                movePlayer(ActivePlayer, "Deep in Market");
+                break;
+            case "2: Drop your only coin in good luck fountain":
+                System.out.println("You here a small splash when your coin hits the water");
+                ActivePlayer.hero.inventory.items = ActivePlayer.hero.inventory.deleteItemInventory("Small gold coin");
         }
     }
 

@@ -29,7 +29,7 @@ class Inventory {
 
     }
 
-    public void updateInventory(Item new_item) {
+    public void addItemInventory(Item new_item) {
         System.out.println("Picked up: " + new_item.item_name);
         total_number_items++;
         this.items = update(new_item);
@@ -48,9 +48,19 @@ class Inventory {
         }
     }
 
+    public Item[] deleteItemInventory(String removeItem) {
+        Item[] updatedInventory = new Item[(items.length-1)];
+        for (int i = 0; i < items.length; i++) {
+            if (!(items[i].item_name == removeItem)) {
+                updatedInventory[i] = items[i];
+            }
+        }
+        return updatedInventory;
+    }
+
     private Item[] newInventory(int number_items) {
-        Item[] tmp_inventory = new Item[number_items];
-        return tmp_inventory;
+        Item[] tmpInventory = new Item[number_items];
+        return tmpInventory;
     }
 
     int getTotalNumberItems() {
@@ -58,13 +68,13 @@ class Inventory {
     }
 
     private Item[] update(Item new_item) {
-        Item[] tmp_inventory = newInventory(total_number_items);
+        Item[] tmpInventory = newInventory(total_number_items);
         for (int i = 0; i < items.length; i++) {
-            tmp_inventory[i] = items[i];
+            tmpInventory[i] = items[i];
         }
-        tmp_inventory[total_number_items - 1] = new_item;
+        tmpInventory[total_number_items - 1] = new_item;
 
-        return tmp_inventory;
+        return tmpInventory;
     }
 
     Item getItem(int ItemIndex) {

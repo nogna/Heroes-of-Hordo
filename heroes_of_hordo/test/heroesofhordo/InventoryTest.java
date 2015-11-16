@@ -51,12 +51,12 @@ public class InventoryTest {
      * Test of updateInventory method, of class Inventory.
      */
     @Test
-    public void testUpdateInventory() {
+    public void testAddItemInventory() {
         System.out.println("updateInventory");
         Item new_item = new Item("Spoon");
         Inventory instance = new Inventory();
         String[] expResult = {"Tiny knife", "Spoon"};
-        instance.updateInventory(new_item);
+        instance.addItemInventory(new_item);
         assertTrue(Inventory.equal(instance, expResult, instance.getTotalNumberItems()));
 
     }
@@ -68,7 +68,7 @@ public class InventoryTest {
     public void testPrintInventory() {
         System.out.println("printInventory");
         Inventory instance = new Inventory();
-        instance.updateInventory(new Item("Spoon"));
+        instance.addItemInventory(new Item("Spoon"));
         instance.printInventory();
         //assertEquals("printInventory Inventory: 1: Knife ", outContent.toString());
 
@@ -111,8 +111,8 @@ public class InventoryTest {
         Inventory instance = new Inventory();
         Item expResult1 = new Item("Knife");
         Item expResult2 = new Item("Spoon");
-        instance.updateInventory(expResult1);
-        instance.updateInventory(expResult2);
+        instance.addItemInventory(expResult1);
+        instance.addItemInventory(expResult2);
         Item result = instance.getItem(ItemIndex);
         assertTrue(expResult1.equals(result));
         assertFalse(expResult2.equals(result));
