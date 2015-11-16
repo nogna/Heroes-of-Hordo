@@ -28,15 +28,33 @@ class ChoiceRepository {
 
             case ("Sandtopia - Dark Alley"):
                 return setChoicesSandtopia_DarkAlley();
-                
+
             case ("Market Place"):
                 return setChoicesMarketPlace();
+
+            case ("Deep in Market"):
+                return setChoicesDeepInMarket();
+            case ("Hay Stack"):
+                return setChoicesHayStack();
+            case ("Jail"):
+                return setChoicesJail();
+            case ("Main Street"):
+                return setChoicesMainStreet();
+            case ("Bar"):
+                return setChoicesBar();
+            case ("Shortcut - Underground"):
+                return setChoicesShortcut_Underground();
+            case ("Side Street"):
+                return setChoicesSideStreet();
+            case ("Outside Tower"):
+                return setChoicesOutsideTower();
+            case ("Side Street 2"):
+                return setChoicesSideStreet2();
 
         }
         String[] x = new String[0];
         return x;
     }
-
 
     private void won() {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
@@ -45,6 +63,7 @@ class ChoiceRepository {
     private void lost() {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
+
     private String[] setChoicesSandtopia() {
         String[] choices = new String[5];
         choices[0] = "1: Go inside";
@@ -79,18 +98,21 @@ class ChoiceRepository {
         choices[2] = "3: Exit Game";
         return choices;
     }
+
     private String[] setChoicesHayStack() {
         String[] choices = new String[2];
         choices[0] = "1: Wait in the Hay Stack";
         choices[1] = "2: Exit Game";
         return choices;
     }
+
     private String[] setChoicesJail() {
         String[] choices = new String[2];
         choices[0] = "1: Wait in the jail cell";
         choices[1] = "2: Exit Game";
         return choices;
     }
+
     private String[] setChoicesMainStreet() {
         String[] choices = new String[4];
         choices[0] = "1: Take the shortcut";
@@ -99,6 +121,7 @@ class ChoiceRepository {
         choices[3] = "4: Exit Game";
         return choices;
     }
+
     private String[] setChoicesBar() {
         String[] choices = new String[3];
         choices[0] = "1: Bet on Scorpion";
@@ -106,6 +129,7 @@ class ChoiceRepository {
         choices[2] = "3: Exit Game";
         return choices;
     }
+
     private String[] setChoicesShortcut_Underground() {
         String[] choices = new String[3];
         choices[0] = "1: Carefully move forward";
@@ -113,6 +137,7 @@ class ChoiceRepository {
         choices[2] = "3: Exit Game";
         return choices;
     }
+
     private String[] setChoicesSideStreet() {
         String[] choices = new String[3];
         choices[0] = "1: Ahh, I know the way from here";
@@ -120,6 +145,7 @@ class ChoiceRepository {
         choices[2] = "3: Exit Game";
         return choices;
     }
+
     private String[] setChoicesOutsideTower() {
         String[] choices = new String[4];
         choices[0] = "1: Bribe";
@@ -128,6 +154,7 @@ class ChoiceRepository {
         choices[3] = "4: Exit Game";
         return choices;
     }
+
     private String[] setChoicesSideStreet2() {
         String[] choices = new String[2];
         choices[0] = "1: Continue forward";

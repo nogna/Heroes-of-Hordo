@@ -15,7 +15,7 @@ class Player {
     int player_number;
     Hero hero;
     String action;
-    String location = "Sandtopia";
+    String location = "Sandtopia entrance";
     
     public Player(int i) {
         total_player_number++;
