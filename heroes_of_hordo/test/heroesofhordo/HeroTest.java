@@ -85,7 +85,7 @@ public class HeroTest {
         System.out.println("getChoices");
         ChoiceRepository test = new ChoiceRepository();
         Hero instance = new Hero();
-        String[] expResult = {"Go inside", "Knock", "Yell at the door", "Search inventory", "Exit Game"};
+        String[] expResult = {"1: Go inside", "2: Knock", "3: Yell at the door", "4: Search inventory", "5: Exit Game"};
         String[] result = test.getChoices("Sandtopia");
         assertTrue(Hero.equalChoice(result, expResult));
     }

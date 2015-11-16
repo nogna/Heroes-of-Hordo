@@ -62,7 +62,8 @@ public class HeroesOfHordo {
 
             case "4: Search inventory":
                 movePlayer(ActivePlayer, "INVENTORY");
-
+                selectItem(ActivePlayer);
+                break;
             case "5: Exit Game":
                 break;
 
@@ -70,7 +71,7 @@ public class HeroesOfHordo {
                 break;
             case "2: Go back outside":
                 movePlayer(ActivePlayer, "Sandtopia");
-
+                break;
         }
     }
 
@@ -91,6 +92,12 @@ public class HeroesOfHordo {
             Input.next();
         }
     }
+    private static void CheckIfInt(Scanner Input, Player ActivePlayer) {
+        while (!Input.hasNextInt()) {
+            System.out.println("Plz a number between"+ ActivePlayer.hero.inventory.getTotalNumberItems()+": ");
+            Input.next();
+        }
+    }
 
     private static boolean validInt(int Action, String[] Choices) {
         return (Action <= 1 && Action >= Choices.length);
@@ -104,6 +111,21 @@ public class HeroesOfHordo {
 
     private static void movePlayer(Player ActivePlayer, String Location) {
         ActivePlayer.location = Location;
+    }
+
+    private static void selectItem(Player ActivePlayer) {
+        int ItemNumber = getPlayerInt();
+        ActivePlayer.hero.inventory.printInventory();
+        getPlayerInt();
+        Item activeItem = ActivePlayer.hero.inventory.useItem(ItemNumber);
+
+    }
+
+    private static int getPlayerInt() {
+        Scanner Sc = new Scanner(System.in);
+        CheckIfInt(Sc, ActivePlayer);
+        int tmpInt = Sc.nextInt();
+        return tmpInt;
     }
 
 }

@@ -33,11 +33,10 @@ public class Hero {
 
     public Hero() {
         name = "";
-
         inventory = new Inventory();
+        
         /*LATER FEATURE
         gear= new Gear();
-    
          */
     }
 

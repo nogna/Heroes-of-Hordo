@@ -73,4 +73,11 @@ class Inventory {
         return tmp_inventory;
     }
     
+    
+    
+    Item useItem(int whatItem) {
+    
+    
+    }
+    
 }
